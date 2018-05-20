@@ -1,0 +1,24 @@
+<?php
+
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
+
+use App\Section;
+/*
+Route::get('/', function () {
+    return View::make('pages.home');
+
+    //return Section::with('subSections.subSections.subSections')->where('entry_point',true)->get();
+   // return view('welcome');
+});
+*/
+Route::get('/about','MainController@about');
+Route::get('/{sections?}','MainController@index')->where('SectionsSeeder', '(.*)');

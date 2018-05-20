@@ -1,0 +1,16 @@
+{
+  "generator-bootstrap-kickstart": {
+    "promptValues": {
+      "oldIeSupport": false,
+      "boilerplateAmount": "Just a little – Get started with a few example files",
+      "customPaths": false,
+      "license": "MIT",
+      "authorName": "",
+      "authorUrl": "",
+      "initialVersion": "0.0.0",
+      "additionalInfo": false,
+      "banner": false,
+      "addDistToVersionControl": false
+    }
+  }
+}
