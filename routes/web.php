@@ -21,4 +21,5 @@ Route::get('/', function () {
 });
 */
 Route::get('/about','MainController@about');
-Route::get('/{sections?}','MainController@index')->where('SectionsSeeder', '(.*)');
+Route::get('/','MainController@index');
+Route::get('/{sections}','MainController@index');

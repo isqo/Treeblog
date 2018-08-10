@@ -20,6 +20,7 @@ class CreateSectionsTable extends Migration
             $table->boolean('has_content')->default(false);
             $table->boolean('is_entry_point')->default(false);
             $table->integer('section_id')->nullable()->unsigned();
+            $table->text('tag')->nullable();
         });
 
         Schema::table('sections', function(Blueprint $table) {

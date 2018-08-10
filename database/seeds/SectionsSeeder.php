@@ -1,7 +1,8 @@
 <?php
 
-use Illuminate\Database\Seeder;
+use App\Content;
 use App\Section;
+use Illuminate\Database\Seeder;
 
 class SectionsSeeder extends Seeder
 {
@@ -26,8 +27,26 @@ class SectionsSeeder extends Seeder
             'name' => 'Java Programming',
             'description' => '...',
             'has_content' => false,
+            'is_entry_point' => true,
+            'section_id' => $computer_science->id
+        ));
+
+        $java = Section::create(array(
+            'name' => 'Primitives',
+            'description' => '...',
+            'has_content' => true,
             'is_entry_point' => false,
-            'section_id'=> $computer_science->id
+            'section_id' => $java->id,
+            'tag' => "#test"
+        ));
+
+        Content::create(array(
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+            'title' => 'Java Programming',
+            'content' => 'one two tree four five six seven eight nine ten',
+            'section_id' => $java->id,
+            'is_commentable' => false
         ));
 
         $this->command->info('The sections are created!');

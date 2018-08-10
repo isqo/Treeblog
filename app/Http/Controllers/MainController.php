@@ -4,23 +4,24 @@ namespace App\Http\Controllers;
 
 use App\Section;
 
-use Illuminate\Http\Request;
-
 class MainController extends Controller
 {
 
-    public function index($sectionsIds = '')
+    public function index($sectionId = '')
     {
         $sections = Section::getEntryPointSections();
-        if ($sectionsIds) {
-            $array = explode('/', $sectionsIds);
-            $lastId = end($array);
-            //do stuff
-            if (!Section::isEntryPoint($lastId))
-                $sections = Section::getSection($lastId);
+        $content = '';
+        if (!Section::isEntryPoint($sectionId)) {
+            $sections = Section::getSection($sectionId);
+            if (!$sections->isEmpty()) {
+                $upSection = $sections->first()->upSection;
+                if ($upSection != null && $upSection->has_content) {
+                    $content = $upSection->content->content;
+                }
+            }
         }
 
-        return view('pages.home', compact('sections'));
+        return view('pages.home', compact('sections', 'content'));
     }
 
     public function about()

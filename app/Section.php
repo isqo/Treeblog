@@ -7,8 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     protected $casts = [
-        'entry_point' => 'boolean',
-        'linkable' => 'boolean'
+        'entry_point' => 'boolean'
     ];
 
     public $timestamps = false;
@@ -18,6 +17,23 @@ class Section extends Model
     public function subSections()
     {
         return $this->hasMany('App\Section');
+    }
+
+    public function hasChildren()
+    {
+        return $this->hasMany('App\Section')->count() > 0;
+    }
+
+
+    public function upSection()
+    {
+        return $this->belongsTo('App\Section','section_id');
+    }
+
+
+    public function content()
+    {
+        return $this->hasOne('App\Content');
     }
 
     public static function getEntryPointSections()
