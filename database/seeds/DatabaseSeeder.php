@@ -12,6 +12,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call('SectionsSeeder');
+        $this->call('PagesSeeder');
         $this->command->info('sections seeds finished.');
     }
 }

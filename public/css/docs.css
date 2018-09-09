@@ -1,5 +1,9 @@
 /*! Spectre.css Docs | MIT License | github.com/picturepan2/spectre */
 
+.hide-tab-content {
+    display: none;
+}
+
 body, html {
     height: 100%;
 }
@@ -39,7 +43,7 @@ footer {
 .off-canvas .off-canvas-toggle {
     font-size: 1rem;
     left: 1.5rem;
-    position: fixed;
+    position: relative;
     top: 1rem
 }
 
@@ -56,7 +60,6 @@ footer {
 }
 
 .docs-navbar .btn {
-    position: absolute;
     right: 1.5rem;
     top: 1rem
 }
@@ -91,7 +94,7 @@ footer {
     padding-left: 1rem
 }
 
-.docs-sidebar .accordion .menu .menu-item > a {
+.docs-sidebar .accordion .menu .menu-item > a .href{
     background: 0 0;
     color: #667189;
     display: inline-block;

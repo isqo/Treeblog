@@ -1,6 +1,5 @@
 <?php
 
-use App\Content;
 use App\Section;
 use Illuminate\Database\Seeder;
 
@@ -15,39 +14,62 @@ class SectionsSeeder extends Seeder
     {
         DB::table('sections')->delete();
 
+        $main = Section::create(array(
+            'name' => 'main',
+            'horizontal_position' => 0,
+            'vertical_position' => Section::count() + 1
+        ));
 
         $computer_science = Section::create(array(
             'name' => 'Computer Science',
-            'description' => '...',
-            'has_content' => false,
-            'is_entry_point' => true
+            'section_id' => $main->id,
+            'horizontal_position' => 1,
+            'vertical_position' => Section::count() + 1
         ));
 
         $java = Section::create(array(
             'name' => 'Java Programming',
-            'description' => '...',
-            'has_content' => false,
-            'is_entry_point' => true,
-            'section_id' => $computer_science->id
+            'section_id' => $computer_science->id,
+            'horizontal_position' => 2,
+            'vertical_position' => Section::count() + 1
         ));
 
-        $java = Section::create(array(
+        $primitives = Section::create(array(
             'name' => 'Primitives',
-            'description' => '...',
-            'has_content' => true,
-            'is_entry_point' => false,
             'section_id' => $java->id,
-            'tag' => "#test"
+            'horizontal_position' => 1,
+            'vertical_position' => Section::count() + 1
         ));
 
-        Content::create(array(
-            'created_at' => date("Y-m-d H:i:s"),
-            'updated_at' => date("Y-m-d H:i:s"),
-            'title' => 'Java Programming',
-            'content' => 'one two tree four five six seven eight nine ten',
-            'section_id' => $java->id,
-            'is_commentable' => false
+        $int = Section::create(array(
+            'name' => 'int',
+            'section_id' => $primitives->id,
+            'horizontal_position' => 2,
+            'vertical_position' => Section::count() + 1
         ));
+
+        $t1 = Section::create(array(
+            'name' => 't1',
+            'section_id' => $int->id,
+            'horizontal_position' => 1,
+            'vertical_position' => Section::count() + 1
+        ));
+
+        Section::create(array(
+            'name' => 't2',
+            'section_id' => $t1->id,
+            'horizontal_position' => 2,
+            'vertical_position' => Section::count() + 1
+        ));
+
+        Section::create(array(
+            'name' => 'Primitives2',
+            'section_id' => $java->id,
+            'horizontal_position' => 1,
+            'hasContent' => true,
+            'vertical_position' => Section::count() + 1
+        ));
+
 
         $this->command->info('The sections are created!');
     }

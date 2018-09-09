@@ -3,26 +3,28 @@
 namespace App\Http\Controllers;
 
 use App\Section;
+use App\SectionLogic;
+use App\Setup;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Hash;
 
 class MainController extends Controller
 {
 
-    public function index($sectionId = '')
+    public function index(Request $request, $currentSectionId = 'main')
     {
-        $sections = Section::getEntryPointSections();
-        $content = '';
-        if (!Section::isEntryPoint($sectionId)) {
-            $sections = Section::getSection($sectionId);
-            if (!$sections->isEmpty()) {
-                $upSection = $sections->first()->upSection;
-                if ($upSection != null && $upSection->has_content) {
-                    $content = $upSection->content->content;
-                }
-            }
-        }
+        $content = null;
+        $currentSection = Section::getSection($currentSectionId);
 
-        return view('pages.home', compact('sections', 'content'));
+        $page = $currentSection->page;
+        if ($page)
+            $content = $page->content;
+
+        return view('pages.home', compact('currentSection', 'content'));
     }
+
 
     public function about()
     {

@@ -18,14 +18,14 @@ class CreateCommentsTable extends Migration
             $table->timestamps();
             $table->text('content');
             $table->integer('user_id')->unsigned();
-            $table->integer('content_id')->unsigned();
+            $table->integer('page_id')->unsigned();
         });
 
         Schema::table('comments', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')
                 ->onDelete('restrict')
                 ->onUpdate('restrict');
-            $table->foreign('content_id')->references('id')->on('contents')
+            $table->foreign('page_id')->references('id')->on('pages')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });

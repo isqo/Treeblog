@@ -1,8 +1,8 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class CreateSectionsTable extends Migration
 {
@@ -15,19 +15,23 @@ class CreateSectionsTable extends Migration
     {
         Schema::create('sections', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name',30);
-            $table->text('description');
-            $table->boolean('has_content')->default(false);
-            $table->boolean('is_entry_point')->default(false);
+            $table->string('name', 30)->unique();
+            $table->Boolean('hasContent')->default(false);
             $table->integer('section_id')->nullable()->unsigned();
-            $table->text('tag')->nullable();
+            $table->integer('horizontal_position')->unsigned();
+            $table->integer('vertical_position')->unsigned();
         });
 
-        Schema::table('sections', function(Blueprint $table) {
+        Schema::table('sections', function (Blueprint $table) {
             $table->foreign('section_id')->references('id')->on('sections')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
         });
+
+        Artisan::call('db:seed', [
+                '--class' => 'SectionsSeeder',
+                '--force' => true]
+        );
     }
 
     /**
@@ -37,7 +41,7 @@ class CreateSectionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('sections', function(Blueprint $table) {
+        Schema::table('sections', function (Blueprint $table) {
             $table->dropForeign('sections_section_id_foreign');
         });
 

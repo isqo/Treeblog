@@ -10,16 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+#Auth::routes();
+Route::get('/setup', 'SetupController@pre_setup');
+Route::post('/setup', 'SetupController@post_setup');
+Route::get('/about', 'MainController@about');
 
-use App\Section;
-/*
-Route::get('/', function () {
-    return View::make('pages.home');
+// Authentication Routes...
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
+Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm')->name('password.request');
+Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email');
+Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset');
+Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
-    //return Section::with('subSections.subSections.subSections')->where('entry_point',true)->get();
-   // return view('welcome');
-});
-*/
-Route::get('/about','MainController@about');
-Route::get('/','MainController@index');
-Route::get('/{sections}','MainController@index');
+Route::get('/', 'MainController@index')->name('home');
+Route::get('/{sections}', 'MainController@index');
+Route::post('/movesection', 'SectionController@move')->name('movesection');
+Route::post('/{sections}', 'PostController@Create')->name('savecontent');
+Route::post('/', 'SectionController@create')->name('createsection');
+Route::delete('/', 'SectionController@delete')->name('deletesection');

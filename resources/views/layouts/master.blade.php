@@ -13,34 +13,25 @@
     <link href="{{ asset('css/spectre-exp.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/spectre-icons.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/docs.css') }}" rel="stylesheet">
-    </head>
-<body style="">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.9/summernote-lite.js"></script>
+</head>
+<body>
 
-<div class="docs-container off-canvas off-canvas-sidebar-show">
+@yield('content')
+<script>
+    $('#summernote').summernote({
+        tabsize: 2
+    });
 
-    @include('layouts.sidebar')
-
-    <a class="off-canvas-overlay" href="#close"></a>
-
-    <div id="content" class="docs-content">
-
-        <div class="container">
-
-            <div class="columns">
-                <div class="column col-12">@include('layouts.navbar')</div>
-            </div>
-
-            <div class="columns">
-                <div class="column col-10 col-mx-auto">@yield('content')</div>
-            </div>
-
-        </div>
-
-
-                <div class="column col-10 col-mx-auto">@include('layouts.footer')</div>
-
-
-    </div>
-</div>
+    $("html").click(function () {
+        $(".toast-error").fadeOut();
+    })
+</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+@yield('javascript')
 </body>
 </html>
