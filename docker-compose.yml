@@ -1,0 +1,67 @@
+version: '3.3'
+
+networks:
+  network:
+    driver: bridge
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - network
+    links:
+      - db
+
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    image: umputun/nginx-le:latest
+    hostname: nginx
+    restart: always
+    container_name: nginx
+    volumes:
+        - ./etc/ssl:/etc/nginx/ssl
+        - ./etc/service.conf:/etc/nginx/service.conf
+        # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
+    ports:
+        - "80:80"
+        - "443:443"
+    environment:
+        - TZ=America/Chicago
+        - LETSENCRYPT=true
+        - LE_EMAIL=qouiqaismail@gmail.com
+        - LE_FQDN=localhost
+        #- SSL_CERT=le-crt.pem
+        #- SSL_KEY=le-key.pem
+        #- SSL_CHAIN_CERT=le-chain-crt.pem
+    networks:
+      - network
+    links:
+        - app
+
+  db:
+    image: mysql:5.7
+    container_name: mysql
+    environment:
+      MYSQL_USER: ${DB_USERNAME}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
+      MYSQL_DATABASE: ${DB_DATABASE}
+    volumes:
+      - db_data:/var/lib/mysql
+    restart: always
+    networks:
+      - network
+
+
+  redis:
+    image: redis
+    networks:
+      - network
+
+volumes:
+  db_data:
+    driver: local
