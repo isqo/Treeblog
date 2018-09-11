@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Setup;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Hash;
 
@@ -38,13 +39,13 @@ class SetupController extends Controller
         $userRegistrationController = app(\App\Http\Controllers\auth\RegisterController::class);
         $hashed_random_password = Hash::make(str_random(8));
         $userData = array("name" => $name, "email" => $email, "password" => $hashed_random_password);
-        $userRegistrationController->create($userData);
+        $user = $userRegistrationController->create($userData);
 
         Artisan::call('storage:link');
 
         Setup::install();
 
-        Auth();
+        Auth::login($user, true);
 
         return view('pages.post-setup', compact('hashed_random_password'));
     }

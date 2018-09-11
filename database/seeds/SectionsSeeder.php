@@ -34,41 +34,6 @@ class SectionsSeeder extends Seeder
             'vertical_position' => Section::count() + 1
         ));
 
-        $primitives = Section::create(array(
-            'name' => 'Primitives',
-            'section_id' => $java->id,
-            'horizontal_position' => 1,
-            'vertical_position' => Section::count() + 1
-        ));
-
-        $int = Section::create(array(
-            'name' => 'int',
-            'section_id' => $primitives->id,
-            'horizontal_position' => 2,
-            'vertical_position' => Section::count() + 1
-        ));
-
-        $t1 = Section::create(array(
-            'name' => 't1',
-            'section_id' => $int->id,
-            'horizontal_position' => 1,
-            'vertical_position' => Section::count() + 1
-        ));
-
-        Section::create(array(
-            'name' => 't2',
-            'section_id' => $t1->id,
-            'horizontal_position' => 2,
-            'vertical_position' => Section::count() + 1
-        ));
-
-        Section::create(array(
-            'name' => 'Primitives2',
-            'section_id' => $java->id,
-            'horizontal_position' => 1,
-            'hasContent' => true,
-            'vertical_position' => Section::count() + 1
-        ));
 
 
         $this->command->info('The sections are created!');

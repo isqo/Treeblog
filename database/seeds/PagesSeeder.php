@@ -15,13 +15,23 @@ class PagesSeeder extends Seeder
     {
         DB::table('pages')->delete();
 
-        $java = Section::where('name', 'Primitives2')->first();
+        $main = Section::where('name', 'main')->first();
 
         Page::create(array(
             'created_at' => date("Y-m-d H:i:s"),
             'updated_at' => date("Y-m-d H:i:s"),
-            'content' => 'one two tree four five six seven eight nine ten',
-            'section_id' => $java->id,
+            'content' => 'No content available ',
+            'section_id' => $main->id,
+            'is_commentable' => false
+        ));
+
+        $computer_science = Section::where('name', 'Computer Science')->first();
+
+        Page::create(array(
+            'created_at' => date("Y-m-d H:i:s"),
+            'updated_at' => date("Y-m-d H:i:s"),
+            'content' => 'No content available ',
+            'section_id' => $computer_science->id,
             'is_commentable' => false
         ));
 
