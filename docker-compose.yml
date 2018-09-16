@@ -13,6 +13,8 @@ services:
       - network
     links:
       - db
+    volumes:
+      - app_data:/var/www/html/storage/app/public
 
   nginx:
     build:
@@ -23,9 +25,8 @@ services:
     restart: always
     container_name: nginx
     volumes:
-        - ./etc/ssl:/etc/nginx/ssl
-        - ./etc/service.conf:/etc/nginx/service.conf
-        # - ./etc/service-example-2.conf:/etc/nginx/service2.conf # more services, should be service*.conf
+        - ./deploy/nginx/etc/ssl:/etc/nginx/ssl
+        - app_data:/var/www/html/public/storage
     ports:
         - "80:80"
         - "443:443"
@@ -33,7 +34,7 @@ services:
         - TZ=America/Chicago
         - LETSENCRYPT=true
         - LE_EMAIL=qouiqaismail@gmail.com
-        - LE_FQDN=localhost
+        - LE_FQDN=isqoweb.com
         #- SSL_CERT=le-crt.pem
         #- SSL_KEY=le-key.pem
         #- SSL_CHAIN_CERT=le-chain-crt.pem
@@ -64,4 +65,6 @@ services:
 
 volumes:
   db_data:
+    driver: local
+  app_data:
     driver: local

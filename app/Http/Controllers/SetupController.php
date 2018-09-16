@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Setup;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
@@ -20,13 +21,13 @@ class SetupController extends Controller
 
     public function post_setup(Request $request)
     {
+        Artisan::call('migrate:fresh', array('--path' => 'database/migrations', '--force' => true));
 
         $this->validate(request(), [
             "name" => "required",
             "email" => "required|unique:users,email",
         ]);
 
-        Artisan::call('migrate:fresh', array('--path' => 'database/migrations', '--force' => true));
 
         $name = $request->input('name');
         $email = $request->input('email');
@@ -36,10 +37,14 @@ class SetupController extends Controller
         } else {
             File::copy(public_path() . "/img/icons8-anonymous-mask.png", public_path() . "/storage/avatar.png");
         }
-        $userRegistrationController = app(\App\Http\Controllers\auth\RegisterController::class);
+
         $hashed_random_password = Hash::make(str_random(8));
-        $userData = array("name" => $name, "email" => $email, "password" => $hashed_random_password);
-        $user = $userRegistrationController->create($userData);
+
+        $user = User::create([
+            'name' => $name,
+            'email' => $email,
+            'password' => Hash::make($hashed_random_password),
+        ]);
 
         Artisan::call('storage:link');
 

@@ -46,9 +46,9 @@ WORKDIR /var/www/html
 RUN touch storage/logs/laravel.log
 
 RUN composer install
-#RUN php artisan cache:clear
-#RUN php artisan view:clear
-#RUN php artisan route:cache
+RUN php artisan cache:clear
+RUN php artisan config:cache
+RUN php artisan storage:link
 
 RUN chmod -R 777 /var/www/html/storage
 
