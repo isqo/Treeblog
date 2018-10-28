@@ -67,6 +67,7 @@ fabric.properties
 
 # Laravel 4 specific
 bootstrap/compiled.php
+bootstrap/cache/
 app/storage/
 
 # Laravel 5 & Lumen specific
