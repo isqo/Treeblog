@@ -17,9 +17,13 @@ class PostController extends Controller
 
         $content = $request->input('content');
         $currentSection = Section::getSection($currentSectionId);
-        $page = new Page(['content' => $content]);
-        if ($currentSectionId == $currentSection->name)
-            $currentSection->page()->save($page);
+        $contentToSave = ['content' => $content];
+        if ($currentSection->page === null) {
+            $pageToSave = new Page($contentToSave);
+            $currentSection->page()->save($pageToSave);
+        } else {
+            $currentSection->page->update($contentToSave);
+        }
         return view('pages.home', compact('currentSection', 'content'));
     }
 }
