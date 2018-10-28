@@ -86,7 +86,7 @@
 
 @section('javascript')
     <script>
-        window.location.hash = '#main';
+        //window.location.hash = '#main';
 
         function fillSectionModal(value, position) {
             $('.section_parent').attr('value', value);
