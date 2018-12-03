@@ -82,33 +82,3 @@
 </div>
 @include('layouts.sidebar.common1_section_modal')
 @include('layouts.sidebar.common2_section_modal')
-
-
-@section('javascript')
-    <script>
-        //window.location.hash = '#main';
-
-        function fillSectionModal(value, position) {
-            $('.section_parent').attr('value', value);
-            $('.horizontal_position').attr('value', position);
-            $('.section-to-delete').attr('value', value);
-            $('.section-to-move').attr('value', value);
-            $(".tab-item > a.active").trigger("click");
-
-        }
-
-        $(".tab-item > a").click(function () {
-            var tabid = $(this).attr("for");
-            var formAction = $(this).attr("form-action");
-            var formMethod = $(this).attr("form-method");
-            var formButtonName = $(this).attr("form-button-name");
-
-            $("div.tab-section-mng").addClass("hide-tab-content");
-            $("." + tabid).removeClass("hide-tab-content");
-
-            $('.section-mng-form').attr('action', formAction);
-            $('.section-mng-form').attr('method', formMethod);
-            $('.section-mng-form-btn').text(formButtonName);
-        });
-    </script>
-@stop

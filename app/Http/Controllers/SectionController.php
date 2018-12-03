@@ -16,7 +16,7 @@ class SectionController extends Controller
             'horizontal_position' => 'required|Numeric',
         ]);
 
-        $section_name = $request->input('section_name_create');
+        $section_name = $request->input('section_name_for_creation');
         $sectionType = $request->input('section_type');
         $horizontal_position = $request->input('horizontal_position');
 

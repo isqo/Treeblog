@@ -1,32 +1,28 @@
 <div class="modal" id="common2-section-modal" style="min-height: 300px;">
     <a class="modal-overlay" href="#main" aria-label="Close"></a>
     <div class="modal-container" role="document">
-        <form method="POST" class="form-horizontal section-mng-form" action="{{ route('createsection') }}">
-            @csrf
-            <div class="modal-header"><a class="btn btn-clear float-right" href="#main" aria-label="Close"></a>
-                <div class="modal-title h5">Section management</div>
-            </div>
-            <div class="modal-body">
-                <div class="content">
-                    <ul class="tab tab-block">
-                        <li class="tab-item">
-                            <a href="javascript:;" for="tab-create-section" form-method="post"
-                               form-action="{{ route('createsection') }}" form-button-name="save"
-                               class="active">Create</a>
-                        </li>
-                        <li class="tab-item">
-                            <a href="javascript:;" for="tab-delete-section" form-method="delete"
-                               form-action="{{ route('deletesection') }}" form-button-name="confirm">Delete</a>
-                        </li>
-                        <li class="tab-item">
-                            <a href="javascript:;" for="tab-move-section" form-method="post"
-                               form-action="{{ route('movesection') }}" form-button-name="move">Move</a>
-                        </li>
-                    </ul>
+        <div class="modal-header"><a class="btn btn-clear float-right" href="#main" aria-label="Close"></a>
+            <div class="modal-title h5">Section management</div>
+        </div>
+        <div class="modal-body">
+            <div class="content">
+                <ul class="tab tab-block">
+                    <li class="tab-item">
+                        <a href="javascript:;" for="tab-create-section" class="active">Create</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="javascript:;" for="tab-delete-section">Delete</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="javascript:;" for="tab-move-section">Move</a>
+                    </li>
+                </ul>
 
-                    </br>
+                </br>
 
-                    <div class="tab-section-mng tab-create-section">
+                <div class="tab-section-mng tab-create-section">
+                    <form method="POST" class="form-horizontal" action="{{ route('createsection') }}">
+                        @csrf
                         <div class="form-group">
                             <div class="col-3 col-sm-12">
                                 <label class="form-label" for="input-example-1">Section parent</label>
@@ -53,18 +49,27 @@
                                 <label class="form-label" for="input-example-1">Section Name</label>
                             </div>
                             <div class="col-9 col-sm-12">
-                                <input class="form-input" name="section_name_for_creation" type="text" id="input-example-1"
+                                <input class="form-input" name="section_name_for_creation" type="text"
+                                       id="input-example-1"
                                        placeholder="Name" required maxlength="20">
                             </div>
                         </div>
 
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary section-mng-form-btn">Save</button>
+                            <a class="btn btn-link" href="#main">Close</a>
+                        </div>
+
                         <input class="form-input horizontal_position" name="horizontal_position" type="hidden"
                                placeholder="Name">
-                    </div>
+                    </form>
+                </div>
 
-                    <div  class="hide-tab-content tab-section-mng tab-delete-section">
+                <div class="hide-tab-content tab-section-mng tab-delete-section">
+                    <form method="POST" class="form-horizontal" action="{{ route('deletesection') }}">
+                        @csrf
+                        {{method_field('DELETE')}}
                         <div class="form-group">
-
                             <div class="col-3 col-sm-12">
                                 <label class="form-label" for="input-example-1">Section Name</label>
                             </div>
@@ -73,9 +78,16 @@
                                        placeholder="Name" readonly>
                             </div>
                         </div>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary section-mng-form-btn">Save</button>
+                            <a class="btn btn-link" href="#main">Close</a>
+                        </div>
+                    </form>
+                </div>
 
-                    <div class="hide-tab-content tab-section-mng tab-move-section">
+                <div class="hide-tab-content tab-section-mng tab-move-section">
+                    <form method="POST" class="form-horizontal" action="{{ route('movesection') }}">
+                        @csrf
                         <div class="form-group">
 
                             <div class="col-3 col-sm-12">
@@ -98,13 +110,13 @@
                                 </select>
                             </div>
                         </div>
-                    </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary section-mng-form-btn">Move</button>
+                            <a class="btn btn-link" href="#main">Close</a>
+                        </div>
+                    </form>
                 </div>
             </div>
-            <div class="modal-footer">
-                <button type="submit" class="btn btn-primary section-mng-form-btn">Save</button>
-                <a class="btn btn-link" href="#main">Close</a>
-            </div>
-        </form>
+        </div>
     </div>
 </div>
