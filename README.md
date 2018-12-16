@@ -1,6 +1,4 @@
-# Miscsite
-
-
+# Miscsite [![Build Status](https://travis-ci.org/isqo/Miscsite.svg?branch=master)](https://travis-ci.org/isqo/Miscsite)
 # Useful commands
 
 To start the development server on <http://127.0.0.1:8000>:

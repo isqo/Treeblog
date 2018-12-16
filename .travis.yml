@@ -1,0 +1,53 @@
+
+language: php
+install: true
+
+before_script:
+- openssl aes-256-cbc -k "$super_secret_password" -in id_rsa.enc -out /tmp/id_rsa
+  -d
+- eval "$(ssh-agent -s)"
+- chmod 600 /tmp/id_rsa
+- ssh-add /tmp/id_rsa
+script:
+- ssh-keyscan $DEPLOYMENT_HOST_IP >> ~/.ssh/known_hosts
+- echo  -e "
+    APP_NAME=Laravel \n
+    APP_ENV=local \n
+    APP_KEY=$APP_KEY \n
+    APP_DEBUG=true \n
+    APP_URL=http://localhost \n
+    LOG_CHANNEL=stack \n
+    DB_CONNECTION=$DB_CONNECTION \n
+    DB_HOST=$DB_HOST \n
+    DB_PORT=$DB_PORT \n
+    DB_DATABASE=$DB_DATABASE \n
+    DB_USERNAME=$DB_USERNAME \n
+    DB_PASSWORD=$DB_PASSWORD \n
+    BROADCAST_DRIVER=log \n
+    CACHE_DRIVER=file \n
+    SESSION_DRIVER=file \n
+    SESSION_LIFETIME=120 \n
+    QUEUE_DRIVER=sync \n
+    REDIS_HOST=127.0.0.1 \n
+    REDIS_PASSWORD=null \n
+    REDIS_PORT=6379 \n
+    MAIL_DRIVER=$MAIL_DRIVER \n
+    MAIL_HOST=$MAIL_HOST \n
+    MAIL_PORT=$MAIL_PORT \n
+    MAIL_USERNAME=$MAIL_USERNAME \n
+    MAIL_PASSWORD=$MAIL_PASSWORD \n
+    MAIL_ENCRYPTION=null \n
+    PUSHER_APP_ID= \n
+    PUSHER_APP_KEY= \n
+    PUSHER_APP_SECRET= \n
+    PUSHER_APP_CLUSTER=mt1 \n
+    MIX_PUSHER_APP_KEY="${PUSHER_APP_KEY}" \n
+    MIX_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"\n
+  " > $TRAVIS_BUILD_DIR/.env
+- rsync -r $TRAVIS_BUILD_DIR ubuntu@"$DEPLOYMENT_HOST_IP":/tmp
+- ssh ubuntu@"$DEPLOYMENT_HOST_IP" "cd /tmp/Miscsite;sudo docker-compose up -d --no-deps --build app;sudo rm -rf /tmp/Miscsite"
+
+env:
+  global:
+  - secure: XJFYVO/W1HqoF0wkDSj/2VJuWeXL4/Kw4zVVraBOnlGyGIKqbVemYHLgWnJLBTkMqxOLSBWhfBaSGm+5a0VD38dA12mYNkfN0KZ67BahIDEbmqMiSqxBqBZdzQ4S/Pg94Uw7Lzy8K6ZqHWGJUGb77fJkUYIX2gV8NFKlhzFJPIdBLDB4y90hL/QmEN2COrFlWX+9akH2DwC43wrHn8UcJ9tc7TuXroDvVvZLajuZEly9tbt02M6MiXNohaX9xY30aYdIMM3OuAurxO8pKYSbkU0dmZQflbSlzxc/nTPtfppgVG7yp4Sl75K+RTg4Z5Is+vsLgRiy+pYsfyc5uUfGJ9hG4ZE90wqy3vcCxLQC8opG0hdXN4hO2boKpPNeU/UChaJ36nGo9K1XxSThGmiqRo1PFph6ezGwYwe98kkv4RZfcJ/6EENeF1Hk/7zrqQqYh5epeS/msBIe5k7eoaBsO46/10lhGMTXpgBw5veXnfbH6oYWlo6cumMRGK7Ti+8jEw4LvuWjgVIHljLPhuFqTK8Lci3Xt8JGwylf1jYpqW8QRBy3tYOF8o2Duu/yS9TVOCjmvfT/PBH2yfLbQLS/nGKeRILMU1kTFwgshtcxEe5vnPPMSegA4Y8uYMUN3MRqSOkQCgUGkqrc/qoYEzzUNORHxhzKdsQc/JoJZwgMO4Q=
+  - secure: bemru/ragcggqmohaX/iVkcH771LbH1F5WUlyZRVQtFLcjtoXGW+MxEh2AP7nIcgL2Vnhc8ZR4zis6BnOmP9MqlQHjJ3PFXr7jElcaSFBnCjRFDqtoMz6gs0B6HZ/0ay25ZxwukovZeBN7mUigkpMiYyMOq7RfXCsL+zsQxJuKB/9x2jCxmQrTTRkfGy58MTwxsiZ9b6AVq7LJbo8JY5uFEBsbINPVZ4nwdipepFTq7JLFvELNInlWU3KNA79v1RUGKFibyRMrnL22f6tZ6pzoQBBri1zUYFO9yoJwMzzVm1j7Fjl7W2YdX2Y0/oE0TW90RtTZ9zY0Y9J3BS4P4dPU3KEdizYsvbd6VbXVUd/TtgOImL2O+T7nUUymTOA8iTT+2dieHtqsBin+lVsPCCuv+4GMfFmcnJuJXVlJzFLxT7iijvRboLETc2146aAFBX/EmOBBego4B5We/TEF1QuavH68HKiCJuE88gEjPJ1yYS25FwQwKERqyNVkAAu/DVvWlvt6PwDNXDDujwERENTre1s2vL4uWppIZacs/6kfBWzmrCoWW8zkDS10D5uzflAk+vl/WBkf8NU/YbquxXhr+OIjYjuS+ETQc8oPNFATjljgzo5s3BDplA5RatVSPm8UDn7QmqEiTZHOdZn8edzbnfi/7p1W89rmDU+YOUgGI=
