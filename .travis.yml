@@ -1,6 +1,7 @@
 
 language: php
-install: true
+install: composer install
+script: ./vendor/bin/phpunit
 
 before_deploy:
 - openssl aes-256-cbc -k "$SUPER_SECRET_KEY_WORD" -in id_rsa.enc -out /tmp/id_rsa
