@@ -5,7 +5,7 @@ php:
 
 install: composer install
 script: ./vendor/bin/phpunit --coverage-clover build/logs/clover.xml
-after_success: ./vendor/bin/php-coveralls -v
+after_success: - travis_retry php ./vendor/bin/php-coveralls -v
 
 before_deploy:
 - openssl aes-256-cbc -k "$SUPER_SECRET_KEY_WORD" -in id_rsa.enc -out /tmp/id_rsa
