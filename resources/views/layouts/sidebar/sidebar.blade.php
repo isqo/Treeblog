@@ -82,3 +82,23 @@
 </div>
 @include('layouts.sidebar.common1_section_modal')
 @include('layouts.sidebar.common2_section_modal')
+@section('javascript')
+    <script>
+
+        function fillSectionModal(value, position) {
+            $('.section_parent').attr('value', value);
+            $('.horizontal_position').attr('value', position);
+            $('.section-to-delete').attr('value', value);
+            $('.section-to-move').attr('value', value);
+            $(".tab-item > a.active").trigger("click");
+        }
+
+        $(".tab-item > a").click(function () {
+            var tabid = $(this).attr("for");
+
+            $("div.tab-section-mng").addClass("hide-tab-content");
+            $("." + tabid).removeClass("hide-tab-content");
+        });
+
+    </script>
+@stop

@@ -18,7 +18,7 @@ class Section extends Model
 
     public function subSections()
     {
-        return $this->hasMany(Section::class);
+        return $this->hasMany(Section::class)->orderBy('vertical_position');
     }
 
     public function superSection()
