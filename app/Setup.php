@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Schema;
 
 class Setup extends Model
 {
@@ -12,18 +13,25 @@ class Setup extends Model
 
     protected $table = 'setup';
 
-    public static function alreadyInstalled()
+    public function alreadyInstalled()
     {
-        $installationRecord = Setup::where('already_installed', true)->first();
+        $installationRecord = null;
+
+        if (Schema::hasTable('setup')) {
+            $installationRecord = Setup::where('already_installed', true)->first();
+        }
         return $installationRecord != null;
     }
 
     public static function install()
     {
-        $installationRecord = Setup::where('already_installed', false)->first();
-        if($installationRecord != null){
-            $installationRecord->already_installed = true;
-            $installationRecord->save();
+
+        if (Schema::hasTable('setup')) {
+            $installationRecord = Setup::where('already_installed', false)->first();
+            if ($installationRecord != null) {
+                $installationRecord->already_installed = true;
+                $installationRecord->save();
+            }
         }
     }
 

@@ -4,13 +4,15 @@ namespace App\Http\Middleware;
 
 use App\Setup;
 use Closure;
-use Illuminate\Support\Facades\Schema;
 
 class SetupMiddleWare
 {
-    protected $except_urls = [
-        'setup'
-    ];
+    private $setup;
+
+    public function __construct(Setup $setup)
+    {
+        $this->setup = $setup;
+    }
 
     /**
      * Handle an incoming request.
@@ -21,15 +23,17 @@ class SetupMiddleWare
      */
     public function handle($request, Closure $next)
     {
-        $regex = '#' . implode('|', $this->except_urls) . '#';
+        $regex = '#setup#';
 
-        if (
-            !preg_match($regex, $request->path()) && (!Schema::hasTable('setup') || !Setup::alreadyInstalled())
-        ) {
-            return redirect('setup');
-        } elseif (preg_match($regex, $request->path()) && Schema::hasTable('setup') && Setup::alreadyInstalled()) {
+        if (!$this->setup->alreadyInstalled())
+            if (!preg_match($regex, $request->path()))
+                return redirect('setup');
+            else
+                return $next($request);
+
+        if (preg_match($regex, $request->path()))
             return redirect('/');
-        }
+
         return $next($request);
     }
 }
