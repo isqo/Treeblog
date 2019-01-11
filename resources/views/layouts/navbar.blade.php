@@ -15,7 +15,7 @@
             </td>
             <td>
                 <div>
-                    <a href="https://github.com/picturepan2/spectre" target="_blank" class="btn btn-primary">Github</a>
+                    <a href="https://github.com/isqo/Miscsite" target="_blank" class="btn btn-primary">Github</a>
                 </div>
             </td>
         </tr>
