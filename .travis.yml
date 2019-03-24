@@ -53,6 +53,6 @@ before_deploy:
 deploy:
   - provider: script
     skip_cleanup: true
-    script: ssh ubuntu@"$DEPLOYMENT_HOST_IP" "cd ~/tmp/Miscsite;sudo docker-compose up -d --no-deps --build app;"
+    script: ssh ubuntu@"$DEPLOYMENT_HOST_IP" "cd ~/tmp/Miscsite;sudo docker-compose up -d --no-deps --build app nginx;"
     on:
       branch: master
