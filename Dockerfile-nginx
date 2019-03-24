@@ -12,6 +12,8 @@ RUN \
  chmod +x /entrypoint.sh && \
  chmod +x /le.sh && \
  apk add  --update certbot tzdata openssl && \
+ apk add --update py-pip && \
+ pip install pyopenssl==16.0.0 && \
  rm -rf /var/cache/apk/*
 
 CMD ["/entrypoint.sh"]
