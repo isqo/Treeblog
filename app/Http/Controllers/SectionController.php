@@ -10,7 +10,7 @@ class SectionController extends Controller
     public function create(Request $request)
     {
         $this->validate(request(), [
-            'section_name_for_creation' => 'required|unique:sections,name|max:20',
+            'section_name_for_creation' => 'required|unique:sections,name|max:100',
             'section_type' => 'required',
             'section_parent' => 'required|exists:sections,name',
             'horizontal_position' => 'required|Numeric',
