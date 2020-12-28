@@ -17,7 +17,7 @@ before_deploy:
 - echo  -e "
     APP_NAME=Laravel \n
     APP_ENV=local \n
-    APP_KEY=$APP_KEY \nk
+    APP_KEY=$APP_KEY \n
     APP_DEBUG=true \n
     APP_URL=http://localhost \n
     LOG_CHANNEL=stack \n
@@ -25,7 +25,7 @@ before_deploy:
     DB_HOST=$DB_HOST \n
     DB_PORT=$DB_PORT \n
     DB_DATABASE=$DB_DATABASE \n
-    DB_USERNAME=$DB_USERNAME \nf
+    DB_USERNAME=$DB_USERNAME \n
     DB_PASSWORD=$DB_PASSWORD \n
     BROADCAST_DRIVER=log \n
     CACHE_DRIVER=file \n
@@ -39,7 +39,7 @@ before_deploy:
     MAIL_HOST=$MAIL_HOST \n
     MAIL_PORT=$MAIL_PORT \n
     MAIL_USERNAME=$MAIL_USERNAME \n
-    MAIL_PASSWORD=$MAIL_PASSWORD \nk
+    MAIL_PASSWORD=$MAIL_PASSWORD \n
     MAIL_ENCRYPTION=null \n
     PUSHER_APP_ID= \n
     PUSHER_APP_KEY= \n
