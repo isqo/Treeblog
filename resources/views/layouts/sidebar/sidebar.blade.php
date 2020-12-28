@@ -24,14 +24,16 @@
             <div class="accordion">
                 <label class="accordion-header c-hand" for="docs-accordion-introduction">
                     <a href="/{{$currentSection->getChildrenParent()->name}}"
-                       style="color:#667189;text-decoration: none;">Introduction</a>
+                       style="color:#667189;text-decoration: none;">
+                        Introduction
+                    </a>
                 </label>
             </div>
 
             @foreach ($currentSection->getChildren() as $child)
                 <div class="accordion">
                     <input type="checkbox" id="docs-accordion-{{$child->id}}" name="docs-accordion-checkbox" hidden=""
-                           @if($child->subSections->contains('name',$currentSection->name))checked="checked"@endif>
+                           checked="checked">
                     <label class="accordion-header c-hand" for="docs-accordion-{{$child->id}}">
                         @auth
                             <a class="btn btn-primary btn-sm" href="#common2-section-modal"
@@ -40,10 +42,11 @@
                                         class="icon icon-edit"></i></a>
                         @endauth
                         @if ($child->hasContent)
-                            <a href="/{{$child->name}}"
-                               style="color:#667189;text-decoration: none;">{{$child->name}}</a>
+                            <a href="/{{$child->name}}" style="color:#667189;text-decoration: none;">
+                                <span @if($child->name == $currentSection->name)class="label label-primary" @endif>{{$child->name}}</span>
+                            </a>
                         @else
-                            {{$child->name}}
+                            <span @if($child->name == $currentSection->name)class="label label-primary" @endif>{{$child->name}}</span>
                         @endif
                     </label>
 
@@ -66,7 +69,9 @@
                                         <td>
                                             <li class="menu-item">
                                                 <a class="href" href="/{{$secondChild->name}}">
-                                                    {{$secondChild->name}}
+                                                <span @if($secondChild->name == $currentSection->name)class="label label-primary" @endif>
+                                                        {{$secondChild->name}}
+                                                </span>
                                                 </a>
                                             </li>
                                         </td>
