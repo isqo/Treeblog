@@ -10,8 +10,8 @@
         <title>{{ $currentSection->name }}</title>
     @endisset
 
-    <link rel="shortcut icon" href="img\favicons\favicon.ico">
-    <link rel="icon" href="img\favicons\favicon.png">
+    <link rel="shortcut icon" href="{{url('storage/avatar.png')}}">
+    <link rel="icon" href="{{url('storage/avatar.png')}}">
     <link href="{{ asset('css/spectre.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/spectre-exp.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/spectre-icons.min.css') }}" rel="stylesheet">
