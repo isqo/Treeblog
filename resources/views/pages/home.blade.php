@@ -15,7 +15,7 @@
                 </div>
                 <div class="columns">
                     <div class="column col-10 col-mx-auto">
-                        @if (! Request::is('main'))
+                        @if ($currentSection->name != 'main')
                             <div style="margin-bottom: 40px;">
                                 <div class="chip" style="float: right;">
                                     <img class="avatar avatar-sm" src="{{url('storage/avatar.png')}}"
