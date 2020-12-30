@@ -13,9 +13,17 @@
                 <div class="columns">
                     <div class="column col-12">@include('layouts.navbar')</div>
                 </div>
-
                 <div class="columns">
                     <div class="column col-10 col-mx-auto">
+                        @if (! Request::is('main'))
+                            <div style="margin-bottom: 40px;">
+                                <div class="chip" style="float: right;">
+                                    <img class="avatar avatar-sm" src="{{url('storage/avatar.png')}}"
+                                         alt="Ismail qouiqa">
+                                    {{ date("d M Y", strtotime($currentSection->page->created_at))}}
+                                </div>
+                            </div>
+                        @endif
                         @auth
                             <form method="post" id="savecontent"
                                   action="{{ route('savecontent',$currentSection->name) }}">
