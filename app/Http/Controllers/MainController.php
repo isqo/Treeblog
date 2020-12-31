@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Section;
+use App\Page;
 use App\SectionLogic;
 use App\Setup;
 use Illuminate\Http\Request;
@@ -22,7 +23,9 @@ class MainController extends Controller
         if ($page)
             $content = $page->content;
 
-        return view('pages.home', compact('currentSection', 'content'));
+        $recentPosts = Page::getRecentPages();
+
+        return view('pages.home', compact('currentSection', 'content','recentPosts'));
     }
 
 
