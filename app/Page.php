@@ -20,4 +20,16 @@ class Page extends Model
     {
         return Page::where('title', $title)->first();
     }
+
+    public static function getRecentPages()
+    {
+        return Page::orderBy('created_at', 'desc')
+        ->take(10)
+        ->get();
+    }
+
+    public function section()
+    {
+        return $this->belongsTo('App\Section');
+    }
 }

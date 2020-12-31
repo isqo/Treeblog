@@ -38,6 +38,90 @@
                             </form>
                         @endauth
                     </div>
+
+                    <div class="column col-10 col-mx-auto">
+                        @if ($currentSection->name == 'main')
+                            @foreach ($recentPosts as $post)
+                              {{ $post->section->name }}
+                            @endforeach
+                            <div class="columns">
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                                <div class="column col-2">
+                                    <div class="card" style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);">
+                                        <div class="card-header">
+                                            <div class="card-title h5">Installation</div>
+                                        </div>
+                                        <div class="card-body">How to install and use Spectre.css</div>
+                                        <div class="card-footer"><a class="btn btn-primary" href="getting-started/installation.html">View</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+                    </div>
                 </div>
             </div>
             <div class="column col-10 col-mx-auto">@include('layouts.footer')</div>
