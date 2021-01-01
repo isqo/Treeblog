@@ -288,10 +288,6 @@ footer {
     user-select: none
 }
 
-.docs-content .panel {
-    height: 75vh
-}
-
 .docs-content .panel .tile {
     margin: .75rem 0
 }

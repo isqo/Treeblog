@@ -13,7 +13,7 @@ class Page extends Model
      *
      * @var array
      */
-    protected $fillable = ['content'];
+    protected $fillable = ['content', 'title'];
 
 
     public static function getPage($title)
@@ -24,8 +24,17 @@ class Page extends Model
     public static function getRecentPages()
     {
         return Page::orderBy('created_at', 'desc')
-        ->take(10)
-        ->get();
+            ->whereHas('section', function ($query) {
+                $query->where('hasContent', '1');
+            })
+            ->take(8)
+            ->get();
+    }
+
+    public static function getRecentPagesPartitioned()
+    {
+        //$post->section->hasContent
+        return array_chunk(Page::getRecentPages()->all(), 4, false);
     }
 
     public function section()

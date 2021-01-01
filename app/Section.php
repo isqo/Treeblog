@@ -37,6 +37,11 @@ class Section extends Model
         return $superSectionN;
     }
 
+    public function absoluteName()
+    {
+        return $this->superSectionN(2)->name . '/' . $this->superSectionN(1)->name . '/' . $this->name;
+    }
+
     public function page()
     {
         return $this->hasOne('App\Page');
@@ -86,7 +91,7 @@ class Section extends Model
 
     public function addNewChild(Section $section)
     {
-        $this->subSections()->save($section);
+        return $this->subSections()->save($section);
     }
 
     public function getChildrenParent()

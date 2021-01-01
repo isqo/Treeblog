@@ -15,7 +15,8 @@
             </td>
             <td>
                 <div>
-                    <a href="https://github.com/isqo/Miscsite" target="_blank" class="btn btn-primary">Github</a>
+                    <a href="https://github.com/isqo/Miscsite" target="_blank" class="btn btn-primary">Code base on
+                        github</a>
                 </div>
             </td>
         </tr>

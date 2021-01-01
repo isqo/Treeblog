@@ -8,7 +8,10 @@
             <div class="content">
                 <ul class="tab tab-block">
                     <li class="tab-item">
-                        <a href="javascript:;" for="tab-create-section" class="active">Create</a>
+                        <a href="javascript:;" for="tab-update-section" class="active">Update</a>
+                    </li>
+                    <li class="tab-item">
+                        <a href="javascript:;" for="tab-create-section">Create</a>
                     </li>
                     <li class="tab-item">
                         <a href="javascript:;" for="tab-delete-section">Delete</a>
@@ -19,6 +22,43 @@
                 </ul>
 
                 </br>
+
+                <div class="tab-section-mng tab-update-section">
+                    <form method="POST" class="form-horizontal" action="{{ route('section.update') }}">
+                        @csrf
+                        <input name="section_name" class="section_name" id="section_name" type="hidden">
+                        <div class="form-group">
+                            <div class="col-3 col-sm-12">
+                                <label class="form-label" for="new_section_name">Section Name</label>
+                            </div>
+                            <div class="col-9 col-sm-12">
+                                <input class="form-input new_section_name" name="new_section_name" type="text"
+                                       id="new_section_name"
+                                       placeholder="Name" required maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-3 col-sm-12">
+                                <label class="form-label" for="content_title">Content title</label>
+                            </div>
+                            <div class="col-9 col-sm-12">
+                                <input class="form-input content_title" name="content_title" type="text"
+                                       id="content_title"
+                                       placeholder="Name" maxlength="200"
+                                >
+                            </div>
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary section-mng-form-btn">Save</button>
+                            <a class="btn btn-link" href="#main">Close</a>
+                        </div>
+
+                        <input class="form-input horizontal_position" name="horizontal_position" type="hidden"
+                               placeholder="Name">
+                    </form>
+                </div>
 
                 <div class="tab-section-mng tab-create-section">
                     <form method="POST" class="form-horizontal" action="{{ route('createsection') }}">
@@ -52,6 +92,18 @@
                                 <input class="form-input" name="section_name_for_creation" type="text"
                                        id="input-example-1"
                                        placeholder="Name" required maxlength="20">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-3 col-sm-12">
+                                <label class="form-label" for="input-example-1">Content title</label>
+                            </div>
+                            <div class="col-9 col-sm-12">
+                                <input class="form-input content_title" name="content_title" type="text"
+                                       id="content_title"
+                                       placeholder="Name" maxlength="200"
+                                >
                             </div>
                         </div>
 

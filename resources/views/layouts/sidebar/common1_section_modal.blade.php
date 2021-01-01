@@ -10,7 +10,7 @@
                 <div class="content">
                     <ul class="tab tab-block">
                         <li class="tab-item">
-                            <a href="javascript:;" for="tab-create-section" form-method="post"
+                            <a href="javascript:;" for="tab-create-section-from-root" form-method="post"
                                form-action="{{ route('createsection') }}" form-button-name="save"
                                class="active">Create</a>
                         </li>
@@ -18,7 +18,7 @@
 
                     </br>
 
-                    <div class="tab-section-mng tab-create-section">
+                    <div class="tab-create-section-from-root">
                         <div class="form-group">
                             <div class="col-3 col-sm-12">
                                 <label class="form-label" for="input-example-1">Section parent</label>
@@ -47,6 +47,17 @@
                             <div class="col-9 col-sm-12">
                                 <input class="form-input " name="section_name_for_creation" type="text" id="input-example-1"
                                        placeholder="Name" required maxlength="20">
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-3 col-sm-12">
+                                <label class="form-label" for="input-example-1">Content title</label>
+                            </div>
+                            <div class="col-9 col-sm-12">
+                                <input class="form-input " name="content_title" type="text" id="input-example-1"
+                                       placeholder="Name" required maxlength="200">
                             </div>
                         </div>
 

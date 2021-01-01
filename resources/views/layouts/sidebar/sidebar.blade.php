@@ -37,7 +37,7 @@
                     <label class="accordion-header c-hand" for="docs-accordion-{{$child->id}}">
                         @auth
                             <a class="btn btn-primary btn-sm" href="#common2-section-modal"
-                               onclick="fillSectionModal({{"\"".$child->name."\""}},2);"
+                               onclick="fillSectionModal({{"\"".$child->name."\""}},2 @if($child->hasContent){{',' . '"'.$child->page->title.'"'}}@endif);"
                                style="margin-bottom:5px;"><i
                                         class="icon icon-edit"></i></a>
                         @endauth
@@ -61,7 +61,7 @@
                                         <td>
                                             @auth
                                                 <a class="btn btn-primary btn-sm" href="#common2-section-modal"
-                                                   onclick="fillSectionModal({{"\"".$secondChild->name."\""}},1);"
+                                                   onclick="fillSectionModal({{"\"".$secondChild->name."\""}},1 @if($secondChild->hasContent){{',' . '"'.$secondChild->page->title.'"'}}@endif);"
                                                    style="margin-bottom:5px;margin-left:10px;"><i
                                                             class="icon icon-edit"></i></a>
                                             @endauth
@@ -90,12 +90,16 @@
 @section('javascript')
     <script>
 
-        function fillSectionModal(value, position) {
+        function fillSectionModal(value, position, contentTitle) {
             $('.section_parent').attr('value', value);
+            $('.section_name').attr('value', value);
+            $('.new_section_name').attr('value', value);
             $('.horizontal_position').attr('value', position);
             $('.section-to-delete').attr('value', value);
             $('.section-to-move').attr('value', value);
             $(".tab-item > a.active").trigger("click");
+            $('.content_title').attr('value', '');
+            $('.content_title').attr('value', contentTitle);
         }
 
         $(".tab-item > a").click(function () {

@@ -25,8 +25,9 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset');
 
 Route::get('/', 'MainController@index')->name('home');
-Route::get('/{sections}', 'MainController@index');
+Route::get('/{sections}', 'MainController@index')->name('main');
 Route::post('/movesection', 'SectionController@move')->name('movesection');
 Route::post('/{sections}', 'PostController@Create')->name('savecontent');
 Route::post('/', 'SectionController@create')->name('createsection');
+Route::post('/section/update', 'SectionController@update')->name('section.update');
 Route::delete('/', 'SectionController@delete')->name('deletesection');
