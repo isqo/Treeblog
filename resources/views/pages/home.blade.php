@@ -51,7 +51,7 @@
                                         @php
                                             $html = new \Html2Text\Html2Text($post->content);
                                         @endphp
-                                        <div class="column col-3">
+                                        <div class="column col-3 col-xl-6 col-sm-12 col-sm-12">
                                             <div class="card c-hand"
                                                  style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);"
                                                  onclick="location.href=&quot;/{{($post->section->name)}}&quot;">
@@ -63,7 +63,7 @@
                                                 </div>
                                                 <div class="card-body">{!! substr($html->getText(), 0, 100) !!}...</div>
                                                 <div class="card-footer">
-                                                    <div class="chip" style="float: left;">
+                                                    <div class="chip" style="float: right;">
                                                         <img class="avatar avatar-sm"
                                                              src="{{url('storage/avatar.png')}}"
                                                              alt="Ismail qouiqa">
