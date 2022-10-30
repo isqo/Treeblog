@@ -1,22 +1,26 @@
-FROM php:7.1-fpm
+FROM php:7.4-fpm
 
 # Update packages and install composer and PHP dependencies.
 RUN apt-get update && \
   DEBIAN_FRONTEND=noninteractive apt-get install -y \
-    mysql-client \
+    default-mysql-client \
     libpq-dev \
     libfreetype6-dev \
     libjpeg62-turbo-dev \
     libmcrypt-dev \
     libbz2-dev \
+    libzip-dev \
+    libonig-dev \
     cron \
+    && pecl install mcrypt-1.0.4 \
+    && docker-php-ext-enable mcrypt \
     && pecl channel-update pecl.php.net \
     && pecl install apcu
 
 # PHP Extensions
-RUN docker-php-ext-install mcrypt zip bz2 mbstring pdo pdo_mysql pcntl \
-&& docker-php-ext-configure gd --with-freetype-dir=/usr/include/ --with-jpeg-dir=/usr/include/ \
-&& docker-php-ext-install gd
+RUN docker-php-ext-install zip bz2 mbstring pdo pdo_mysql pcntl \
+&& docker-php-ext-configure gd --with-freetype --with-jpeg \
+&& docker-php-ext-install -j$(nproc) gd
 
 # Memory Limit
 RUN echo "memory_limit=2048M" > $PHP_INI_DIR/conf.d/memory-limit.ini
@@ -50,8 +54,11 @@ RUN php artisan cache:clear
 RUN php artisan config:cache
 RUN php artisan storage:link
 
-RUN chmod -R 777 /var/www/html/storage
+RUN chown -R www-data:www-data /var/www
+RUN chmod -R 755 /var/www/html/
+RUN chmod -R 755 /var/www/html/public/storage
+RUN chmod -R 755 /var/www/html/storage
 
 RUN touch /var/log/cron.log
 
-CMD ["/bin/sh", "-c", "php-fpm -D | tail -f storage/logs/laravel.log"]
+CMD ["/bin/bash", "-c", "php-fpm -D | tail -f storage/logs/laravel.log"]

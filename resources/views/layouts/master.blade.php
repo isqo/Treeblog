@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="author" content="https://github.com/isqo">
+  <!--  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">-->
     @isset($currentSection)
         <title>{{ $currentSection->name }}</title>
     @endisset
 
-    <link rel="shortcut icon" href="{{url('storage/avatar.png')}}">
-    <link rel="icon" href="{{url('storage/avatar.png')}}">
+    <link rel="shortcut icon" href="{{ asset('img/icons8-anonymous-mask.png') }}">
+    <link rel="icon" href="{{ asset('img/icons8-anonymous-mask.png') }}">
     <link href="{{ asset('css/spectre.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/spectre-exp.min.css') }}" rel="stylesheet">
     <link href="{{ asset('css/spectre-icons.min.css') }}" rel="stylesheet">

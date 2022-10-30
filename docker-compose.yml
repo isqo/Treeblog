@@ -9,37 +9,39 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/miscsite:latest
     networks:
       - network
     volumes:
       - app_data:/var/www/html/storage/app/public
+  db:
+    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/mysql:latest
+    restart: always
+    networks:
+      - network
+    environment:
+      MYSQL_ROOT_PASSWORD: postgres
+      MYSQL_USER: miscite
+      MYSQL_PASSWORD: miscite
+      MYSQL_DATABASE: miscite
+    ports:
+      - "3306:3306"
 
   nginx:
     build:
       context: .
       dockerfile: Dockerfile-nginx
-    image: umputun/nginx-le:latest
-    hostname: nginx
+    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/nginx:latest
     restart: always
     container_name: nginx
     volumes:
-        - ./deploy/nginx/etc/ssl:/etc/nginx/ssl
-        - app_data:/var/www/html/public/storage
+      - app_data:/var/www/html/public/storage
     ports:
-        - "80:80"
-        - "443:443"
-    environment:
-        - TZ=America/Chicago
-        - LETSENCRYPT=true
-        - LE_EMAIL=qouiqaismail@gmail.com
-        - LE_FQDN=isqoweb.com
-        #- SSL_CERT=le-crt.pem
-        #- SSL_KEY=le-key.pem
-        #- SSL_CHAIN_CERT=le-chain-crt.pem
+      - "80:80"
     networks:
       - network
     links:
-        - app
+      - app
 
 volumes:
   app_data:

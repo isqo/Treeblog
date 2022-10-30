@@ -3,7 +3,7 @@
     <div>
         <a href="/">
             <figure class="avatar avatar-xl" style="background-color:#f8f9fa;">
-                <img src="{{url('storage/avatar.png')}}">
+                <img src="{{ asset('img/icons8-anonymous-mask.png')}}">
             </figure>
         </a>
     </div>

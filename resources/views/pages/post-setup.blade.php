@@ -15,7 +15,7 @@
                         <div class="empty" style="background: white;">
                             <div class="empty-icon">
                                 <figure class="avatar avatar-xl" style="background-color:white;">
-                                    <img src="{{url('storage/avatar.png')}}">
+                                    <img src="{{ asset('img/icons8-anonymous-mask.png')}}">
                                 </figure>
                             </div>
                             <p class="empty-title h5">Miscite Setup is done, Here is your email's password for your

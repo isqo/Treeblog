@@ -32,11 +32,11 @@ class SetupController extends Controller
         $name = $request->input('name');
         $email = $request->input('email');
 
-        if ($request->hasFile('avatar')) {
-            $request->avatar->storeAs('public', 'avatar.png');
-        } else {
-            File::copy(public_path() . "/img/icons8-anonymous-mask.png", public_path() . "/storage/avatar.png");
-        }
+        #if ($request->hasFile('avatar')) {
+        #    $request->avatar->storeAs('public', 'icons8-anonymous-mask.png');
+        #} else {
+        #    File::copy(public_path() . "/img/icons8-anonymous-mask.png", public_path() . "/storage/icons8-anonymous-mask.png");
+        #}
 
         $hashed_random_password = Hash::make(str_random(8));
 

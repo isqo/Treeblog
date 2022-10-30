@@ -1,0 +1,17 @@
+FROM nginx:1.17.8-alpine
+
+ADD deploy/nginx/https/conf/nginx.conf /etc/nginx/nginx.conf
+ADD deploy/nginx/https/conf/service.conf /etc/nginx/conf.d/service.conf
+
+ADD deploy/nginx/https/script/entrypoint.sh /entrypoint.sh
+ADD deploy/nginx/https/script/le.sh /le.sh
+ADD public /var/www/html/public
+
+RUN \
+ rm /etc/nginx/conf.d/default.conf && \
+ chmod +x /entrypoint.sh && \
+ chmod +x /le.sh && \
+ apk add  --update certbot tzdata openssl && \
+ rm -rf /var/cache/apk/*
+
+CMD ["/entrypoint.sh"]
