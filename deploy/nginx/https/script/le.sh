@@ -4,7 +4,7 @@
 # returns 0 only if certbot called.
 
 target_cert=/etc/nginx/ssl/le-crt.pem
-# 30 days
+# 30 days in seconds 30 * 24 * 60 * 60
 renew_before=2592000
 
 if [ "$LETSENCRYPT" != "true" ]; then

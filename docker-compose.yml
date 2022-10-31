@@ -43,6 +43,30 @@ services:
     links:
       - app
 
+  nginx-tls:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx-tls
+    image: umputun/nginx-le:latest
+    hostname: nginx_tls
+    restart: always
+    container_name: nginx_tls
+    volumes:
+      - ./deploy/nginx/etc/ssl:/etc/nginx/ssl
+      - app_data:/var/www/html/public/storage
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      - TZ=America/Chicago
+      - LETSENCRYPT=true
+      - LE_EMAIL=qouiqaismail@gmail.com
+      - LE_FQDN=www.ismailqouiqa.com
+    networks:
+      - network
+    links:
+      - app
+
 volumes:
   app_data:
     driver: local
