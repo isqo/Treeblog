@@ -21,9 +21,9 @@ services:
       - network
     environment:
       MYSQL_ROOT_PASSWORD: postgres
-      MYSQL_USER: miscite
-      MYSQL_PASSWORD: miscite
-      MYSQL_DATABASE: miscite
+      MYSQL_USER: treeblog
+      MYSQL_PASSWORD: treeblog
+      MYSQL_DATABASE: treeblog
     ports:
       - "3306:3306"
 
