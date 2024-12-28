@@ -1,4 +1,4 @@
-# Miscsite [![Build Status](https://travis-ci.org/isqo/Miscsite.svg?branch=master)](https://travis-ci.org/isqo/Miscsite) [![Coverage Status](https://coveralls.io/repos/github/isqo/Miscsite/badge.svg?branch=master)](https://coveralls.io/github/isqo/Miscsite?branch=master)
+# Treeblog [![Build Status](https://travis-ci.org/isqo/Treeblog.svg?branch=master)](https://travis-ci.org/isqo/Treeblog) [![Coverage Status](https://coveralls.io/repos/github/isqo/Treeblog/badge.svg?branch=master)](https://coveralls.io/github/isqo/Treeblog?branch=master)
 # Useful commands
 
 To start the development server on <http://127.0.0.1:8000>:

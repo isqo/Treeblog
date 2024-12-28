@@ -9,7 +9,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/miscsite:latest
+    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/Treeblog:latest
     networks:
       - network
     volumes:

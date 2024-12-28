@@ -44,7 +44,7 @@ resource "aws_instance" "web" {
   key_name = "treeblog-server"
 
   tags = {
-    Name = "Miscsite"
+    Name = "Treeblog"
   }
 }
 
