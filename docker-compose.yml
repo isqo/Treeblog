@@ -5,63 +5,43 @@ networks:
     driver: bridge
 
 services:
-  app:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/Treeblog:latest
-    networks:
-      - network
-    volumes:
-      - app_data:/var/www/html/storage/app/public
-  db:
-    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/mysql:latest
+  mysql:
+    image: mysql:latest
     restart: always
     networks:
       - network
     environment:
-      MYSQL_ROOT_PASSWORD: postgres
+      MYSQL_ROOT_PASSWORD: treeblog
       MYSQL_USER: treeblog
       MYSQL_PASSWORD: treeblog
       MYSQL_DATABASE: treeblog
     ports:
       - "3306:3306"
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: treeblog:latest
+    networks:
+
+      - network
+    volumes:
+      - app_data:/var/www/html/storage/app/public
+    env_file: ./.env
+    depends_on:
+      - mysql
 
   nginx:
     build:
       context: .
       dockerfile: Dockerfile-nginx
-    image: 217820324845.dkr.ecr.us-east-2.amazonaws.com/nginx:latest
+    image: nginx:latest
     restart: always
     container_name: nginx
     volumes:
       - app_data:/var/www/html/public/storage
     ports:
       - "81:81"
-    networks:
-      - network
-    links:
-      - app
-
-  nginx-tls:
-    build:
-      context: .
-      dockerfile: Dockerfile-nginx-tls
-    image: umputun/nginx-le:latest
-    hostname: nginx_tls
-    restart: always
-    container_name: nginx_tls
-    volumes:
-      - ./deploy/nginx/etc/ssl:/etc/nginx/ssl
-      - app_data:/var/www/html/public/storage
-    ports:
-      - "80:80"
-      - "443:443"
-    environment:
-      - TZ=America/Chicago
-      - LETSENCRYPT=true
-      - LE_EMAIL=qouiqaismail@gmail.com
-      - LE_FQDN=www.ismailqouiqa.com
     networks:
       - network
     links:

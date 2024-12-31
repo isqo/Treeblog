@@ -60,5 +60,9 @@ RUN chmod -R 755 /var/www/html/public/storage
 RUN chmod -R 755 /var/www/html/storage
 
 RUN touch /var/log/cron.log
+COPY .env.example .env
+ 
+RUN php artisan key:generate
+RUN php artisan config:cache
 
 CMD ["/bin/bash", "-c", "php-fpm -D | tail -f storage/logs/laravel.log"]
