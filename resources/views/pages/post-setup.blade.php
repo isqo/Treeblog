@@ -6,7 +6,7 @@
 
                 <div class="panel" style="background-color:white;">
                     <div class="panel-header text-center">
-                        <div class="panel-title h1 mt-10">Miscsite Setup</div>
+                        <div class="panel-title h1 mt-10">Treeblog Setup</div>
                         <!--  <figure><img src="./icons8-maintenance-100.png"></figure>-->
                     </div>
 
@@ -18,7 +18,7 @@
                                     <img src="{{ asset('img/icons8-anonymous-mask.png')}}">
                                 </figure>
                             </div>
-                            <p class="empty-title h5">Miscite Setup is done, Here is your email's password for your
+                            <p class="empty-title h5">treeblog Setup is done, Here is your email's password for your
                                 admin page authentication,make sure that you save it securely somewhere
                             </p>
 

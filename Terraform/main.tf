@@ -33,7 +33,7 @@ resource "aws_eip" "web" {
   vpc      = true  # Need to be added in new versions of AWS Provider
   instance = aws_instance.web.id
   tags = {
-    Name  = "EIP for Miscite Built by Terraform"
+    Name  = "EIP for treeblog Built by Terraform"
     Owner = "Ismail QOUIQA"
   }
 }
@@ -41,17 +41,17 @@ resource "aws_eip" "web" {
 resource "aws_instance" "web" {
   ami           = data.aws_ami.ubuntu.id
   instance_type = "t3.micro"
-  key_name = "miscite-server"
+  key_name = "treeblog-server"
 
   tags = {
-    Name = "Miscsite"
+    Name = "Treeblog"
   }
 }
 
 
 resource "aws_security_group" "web" {
-  name        = "Miscite"
-  description = "Security Group for Miscite"
+  name        = "treeblog"
+  description = "Security Group for treeblog"
   vpc_id      = aws_default_vpc.default.id # This need to be added since AWS Provider v4.29+ to set VPC id
 
   dynamic "ingress" {
@@ -74,7 +74,7 @@ resource "aws_security_group" "web" {
   }
 
   tags = {
-    Name  = "MISCITE SG by Terraform"
+    Name  = "treeblog SG by Terraform"
     Owner = "Ismail QOUIQA"
   }
 }

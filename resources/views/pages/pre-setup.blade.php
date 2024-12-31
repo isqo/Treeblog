@@ -10,7 +10,7 @@
                     <form class="form-horizontal" action="/setup" method="post" enctype="multipart/form-data">
                         @csrf
                         <div class="panel-header text-center">
-                            <div class="panel-title h1 mt-10">Miscsite Setup</div>
+                            <div class="panel-title h1 mt-10">Treeblog Setup</div>
                             <!--  <figure><img src="./icons8-maintenance-100.png"></figure>-->
                         </div>
                         <div class="divider"></div>

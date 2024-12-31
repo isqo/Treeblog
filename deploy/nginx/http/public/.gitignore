@@ -1,0 +1,28 @@
+### OS ###
+.DS_Store
+thumbs.db
+desktop.ini
+
+### npm ###
+/node_modules
+
+### System ###
+*.DS_Store
+*Thumbs.db
+
+### Build ###
+/*.zip
+
+/dist
+
+/docs
+/server
+/reports
+/src/assets/css
+/src/assets/js/*.min.js
+/src/assets/js/*.map
+
+### Dev ###
+config.codekit
+*.sublime-project
+*.sublime-workspace
