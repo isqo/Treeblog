@@ -20,6 +20,9 @@ docker-compose up
 <p align="center">
 <img src="https://github.com/isqo/Treeblog/blob/test/doc/create node2.png">
  </p>
+ <p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/test/doc/tree page.png">
+ </p>
  
 # Vanilla
 To start the development server on <http://127.0.0.1:8000>:
