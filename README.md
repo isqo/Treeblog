@@ -32,4 +32,3 @@ To rebuild and update a single container :
 docker-compose up -d --no-deps --build <SERVICE_NAME>
 
 ```
-![alt text](https://github.com/[username]/[reponame]/blob/[branch]/image.jpg?raw=true)
