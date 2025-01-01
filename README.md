@@ -7,9 +7,9 @@
 docker-compose up
 ```
 
-<img src="https://github.com/isqo/Treeblog/blob/master/doc/blog1.png" style="width:300px;height:300px;">
+<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog1.png" style="width:350px;height:350px;">
 
-<img src="https://github.com/isqo/Treeblog/blob/master/doc/blog2.png" style="width:300px;height:300px;">
+<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog2.png" style="width:350px;height:350px;">
 
 
 # Vanilla
