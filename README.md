@@ -3,7 +3,9 @@
 
 
 # Docker compose
-
+```
+docker-compose up
+```
 ![blog1](https://github.com/isqo/Treeblog/blob/master/doc/blog1.png)
 
 # Vanilla
