@@ -7,10 +7,10 @@
 docker-compose up
 ```
 <p align="center">
- <img src="https://github.com/isqo/Treeblog/blob/test/doc/blog1.png" style="width:450px;height:450px;">
+ <img src="https://github.com/isqo/Treeblog/blob/test/doc/blog1.png" style="width:400px;height:400px;">
 </p>
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog2.png" style="width:450px;height:450px;">
+<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog2.png" style="width:400px;height:400px;">
 </p>
 
 <img src="https://github.com/isqo/Treeblog/blob/test/doc/blog3.png">
