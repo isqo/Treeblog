@@ -50,6 +50,30 @@ services:
     links:
       - app
 
+  nginx-tls:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx-tls
+    image: nginx:latest
+    restart: always
+    container_name: nginx_tls
+    volumes:
+      - app_data:/var/www/html/public/storage
+      - ./deploy/nginx/etc/ssl:/etc/nginx/ssl
+    ports:
+        - "443:443"
+    environment:
+        - TZ=America/Chicago
+        - LETSENCRYPT=true
+        - LE_EMAIL=qouiqaismael890@gmail.com
+        - LE_FQDN=www.ismaelqouiqa.com
+        - SSL_CERT=le-crt.pem
+        - SSL_KEY=le-key.pem
+        - SSL_CHAIN_CERT=le-chain-crt.pem
+    networks:
+      - network
+    links:
+      - app
 volumes:
   app_data:
     driver: local
