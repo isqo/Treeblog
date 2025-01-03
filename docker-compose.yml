@@ -10,6 +10,9 @@ services:
     restart: always
     networks:
       - network
+    command: --init-file /data/application/init.sql
+    volumes:
+        - ./init.sql:/data/application/init.sql
     environment:
       MYSQL_ROOT_PASSWORD: treeblog
       MYSQL_USER: treeblog
@@ -41,12 +44,27 @@ services:
     volumes:
       - app_data:/var/www/html/public/storage
     ports:
-      - "81:81"
+      - "80:80"
     networks:
       - network
     links:
       - app
 
+  nginx-tls:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx-tls
+    image: nginx:latest
+    restart: always
+    container_name: nginx
+    volumes:
+      - app_data:/var/www/html/public/storage
+    ports:
+      - "443:443"
+    networks:
+      - network
+    links:
+      - app
 volumes:
   app_data:
     driver: local
