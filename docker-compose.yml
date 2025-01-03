@@ -33,23 +33,7 @@ services:
     env_file: ./.env
     depends_on:
       - mysql
-
-  nginx:
-    build:
-      context: .
-      dockerfile: Dockerfile-nginx
-    image: nginx:latest
-    restart: always
-    container_name: nginx
-    volumes:
-      - app_data:/var/www/html/public/storage
-    ports:
-        - "80:80"
-    networks:
-      - network
-    links:
-      - app
-
+      
   nginx-tls:
     build:
       context: .
