@@ -47,10 +47,10 @@ services:
     ports:
         - "443:443"
     environment:
-        - TZ=America/Chicago
-        - LETSENCRYPT="true"
-        - LE_EMAIL=qouiqaismael890@gmail.com
-        - LE_FQDN=www.ismaelqouiqa.com
+        TZ: "America/Chicago"
+        LETSENCRYPT: true
+        LE_EMAIL: "qouiqaismael890@gmail.com"
+        LE_FQDN: "www.ismaelqouiqa.com"
         #- SSL_CERT=le-crt.pem
         #- SSL_KEY=le-key.pem
         #- SSL_CHAIN_CERT=le-chain-crt.pem
