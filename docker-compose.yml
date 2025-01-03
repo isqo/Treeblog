@@ -14,6 +14,7 @@ services:
     volumes:
         - ./init.sql:/data/application/init.sql
     environment:
+      MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_PASSWORD: treeblog
       MYSQL_USER: treeblog
       MYSQL_PASSWORD: treeblog
