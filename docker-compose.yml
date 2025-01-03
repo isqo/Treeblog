@@ -34,6 +34,22 @@ services:
     depends_on:
       - mysql
 
+  nginx:
+    build:
+      context: .
+      dockerfile: Dockerfile-nginx
+    image: nginx:latest
+    restart: always
+    container_name: nginx
+    volumes:
+      - app_data:/var/www/html/public/storage
+    ports:
+        - "80:80"
+    networks:
+      - network
+    links:
+      - app
+
   nginx-tls:
     build:
       context: .
@@ -45,13 +61,12 @@ services:
       - app_data:/var/www/html/public/storage
       - ./deploy/nginx/etc/ssl:/etc/nginx/ssl
     ports:
-        - "80:80"
         - "443:443"
     environment:
         - TZ=America/Chicago
         - LETSENCRYPT=true
         - LE_EMAIL=qouiqaismael890@gmail.com
-        - LE_FQDN=ismaelqouiqa.com
+        - LE_FQDN=www.ismaelqouiqa.com
         - SSL_CERT=le-crt.pem
         - SSL_KEY=le-key.pem
         - SSL_CHAIN_CERT=le-chain-crt.pem
