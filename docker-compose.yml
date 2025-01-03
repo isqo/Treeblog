@@ -44,7 +44,7 @@ services:
     volumes:
       - app_data:/var/www/html/public/storage
     ports:
-      - "80:80"
+      - "81:81"
     networks:
       - network
     links:
