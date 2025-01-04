@@ -1,4 +1,4 @@
-CREATE DATABASE IF NOT EXISTS treeblog
+CREATE DATABASE IF NOT EXISTS treeblog;
 CREATE USER 'treeblog'@'localhost' IDENTIFIED BY 'treeblog';
 GRANT ALL PRIVILEGES ON *.* TO 'treeblog'@'localhost' WITH GRANT OPTION;
 CREATE USER 'treeblog'@'%' IDENTIFIED BY 'treeblog';
