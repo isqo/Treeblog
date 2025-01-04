@@ -1,0 +1,11 @@
+CREATE DATABASE IF NOT EXISTS treeblog
+
+CREATE USER 'username'@'localhost' IDENTIFIED BY 'treeblog';
+
+GRANT ALL PRIVILEGES ON *.* TO 'treeblog'@'localhost' WITH GRANT OPTION;
+
+CREATE USER 'username'@'%' IDENTIFIED BY 'treeblog';
+
+GRANT ALL PRIVILEGES ON *.* TO 'treeblog'@'%' WITH GRANT OPTION;
+
+FLUSH PRIVILEGES;
