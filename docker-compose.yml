@@ -53,15 +53,19 @@ services:
       - network
     links:
       - app
-  certbot:
-    image: certbot/certbot:latest
+  ping:
+    image: busybox
+    command: mkdir /etc/letsencrypt/; touch /etc/letsencrypt/certbot
     volumes:
-      - ./certbot/www/:/var/www/certbot/:rw
       - shared-volume:/etc/letsencrypt/:rw
+ # certbot:
+  #  image: certbot/certbot:latest
+   # volumes:
+  #    - ./certbot/www/:/var/www/certbot/:rw
+   #   - shared-volume:/etc/letsencrypt/:rw
 volumes:
   app_data:
     driver: local
     
   data:
-    external: true
     name: shared-volume
