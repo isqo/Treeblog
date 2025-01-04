@@ -55,7 +55,7 @@ services:
       - app
   ping:
     image: busybox
-    command: mkdir /etc/letsencrypt/; touch /etc/letsencrypt/certbot
+    command: touch /etc/letsencrypt/certbot
     volumes:
       - shared-volume:/etc/letsencrypt/:rw
  # certbot:
