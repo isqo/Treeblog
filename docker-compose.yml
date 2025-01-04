@@ -66,6 +66,4 @@ services:
 volumes:
   app_data:
     driver: local
-    
-  data:
-    name: shared-volume
+  shared-volume:
