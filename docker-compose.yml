@@ -10,11 +10,7 @@ services:
     restart: always
     networks:
       - network
-    command: --init-file /data/application/init.sql
-    volumes:
-        - ./init.sql:/data/application/init.sql
     environment:
-      MYSQL_ROOT_HOST: "%"
       MYSQL_ROOT_PASSWORD: treeblog
       MYSQL_USER: treeblog
       MYSQL_PASSWORD: treeblog
@@ -50,7 +46,7 @@ services:
       - network
     links:
       - app
-      
+
 volumes:
   app_data:
     driver: local
