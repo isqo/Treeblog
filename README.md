@@ -13,7 +13,7 @@ the depth of their tree is unlimited. Enjoy!
 - Docker compose: Docker version 27.4.1, build b9d17ea
 
   
-Command to launch the deployment
+Command to launch the containers
 ```
 docker compose up --build --force-rebuild
 ```
