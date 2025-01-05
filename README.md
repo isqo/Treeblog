@@ -1,30 +1,47 @@
 # Treeblog [![Build Status](https://travis-ci.org/isqo/Treeblog.svg?branch=master)](https://travis-ci.org/isqo/Treeblog) [![Coverage Status](https://coveralls.io/repos/github/isqo/Treeblog/badge.svg?branch=master)](https://coveralls.io/github/isqo/Treeblog?branch=master)
-# Useful commands
+Treeblog is a unique blog that allows bloggers to dive deep inside the Arborescence of their content, 
+the depth of their tree is unlimited. Enjoy!
 
-
-# Docker compose
-```
-docker-compose up
-```
 <p align="center">
- <img src="https://github.com/isqo/Treeblog/blob/test/doc/blog1.png" style="width:450px;height:450px;">
-</p>
-<p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog2.png" style="width:450px;height:450px;">
+ <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/treeblog.png">
 </p>
 
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog3.png">
+# Setup
+
+## Deployment locally
+### Prerequisites
+- Docker compose: Docker version 27.4.1, build b9d17ea
+
+  
+Command to launch the containers
+```
+docker compose up --build --force-rebuild
+```
+The next step is going to launch the steps that mainly initialize the database structure and inject some data for the blog.
+
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/tree.png">
- </p>
+ <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup1.png">
+</p>
+
+Don't forget to save *securely* this setup generated password, so that you don't lose your admin access forever.
+
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/create node2.png">
- </p>
- <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/tree page.png">
- </p>
+<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
+</p>
+
+  if you log out, As an admin you can login with this path http://127.0.0.1:81/login (/login most importantly)
  
-# Vanilla
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/login.png">
+</p>
+
+ Once you are logged-in, you have the admin view:
+ 
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/admin-view.png">
+</p>
+
+# Vanilla setup
 To start the development server on <http://127.0.0.1:8000>:
 
 ```
@@ -35,11 +52,4 @@ php artisan serve
 
 ```
 php artisan migrate:fresh
-```
-
-To rebuild and update a single container :
-
-```
-docker-compose up -d --no-deps --build <SERVICE_NAME>
-
 ```
