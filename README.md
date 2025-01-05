@@ -47,10 +47,3 @@ php artisan serve
 ```
 php artisan migrate:fresh
 ```
-
-To rebuild and update a single container :
-
-```
-docker-compose up -d --no-deps --build <SERVICE_NAME>
-
-```
