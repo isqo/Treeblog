@@ -25,7 +25,7 @@ Don't forget to save *securely* this setup generated password, so that you don't
 
 <p align="center">
 <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
-</p>c
+</p>
 
   if you log out, As an admin you can login with this path http://127.0.0.1:81/login (/login most importantly)
  
