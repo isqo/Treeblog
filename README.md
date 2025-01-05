@@ -6,7 +6,7 @@ the depth of their tree is unlimited. Enjoy!
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/treeblog.png">
 </p>
 
-#Setup
+# Setup
 
 ## Deployment locally with compose
 ### prerequisites
@@ -19,11 +19,19 @@ It is going to launch the setup steps which mainly initialize the database struc
 <p align="center">
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup1.png">
 </p>
+
 Don't forget to save *securely* the setup generated password, so that you don't lose your admin access
+
 <p align="center">
 <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
 </p>
+
+ if you log out, you can login with this path http://127.0.0.1:81/login
  
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/login.png">
+</p>
+
 # Vanilla setup
 To start the development server on <http://127.0.0.1:8000>:
 
