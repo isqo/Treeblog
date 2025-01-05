@@ -10,7 +10,9 @@ the depth of their tree is unlimited. Enjoy!
 
 ## Deployment locally
 ### Prerequisites
-- Docker compose
+- Docker compose: Docker version 27.4.1, build b9d17ea
+
+  
 Command to launch the deployment
 ```
 docker compose up --build --force-rebuild
