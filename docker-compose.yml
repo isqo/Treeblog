@@ -43,12 +43,12 @@ services:
     container_name: nginx
     volumes:
       - app_data:/var/www/html/public/storage
-      - ./nginx/conf/:/etc/nginx/conf.d/:ro
-      - ./certbot/www:/var/www/certbot/:ro
-      - shared-volume:/etc/nginx/ssl/:ro
+ #     - ./nginx/conf/:/etc/nginx/conf.d/:ro
+  #    - ./certbot/www:/var/www/certbot/:ro
+   #   - shared-volume:/etc/nginx/ssl/:ro
     ports:
-        - "80:80"
-        - "443:443"
+        - "81:81"
+     #   - "443:443"
     networks:
       - network
     links:
