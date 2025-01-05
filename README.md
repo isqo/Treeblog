@@ -9,7 +9,7 @@ the depth of their tree is unlimited. Enjoy!
 # Setup
 
 ## Deployment locally
-### prerequisites
+### Prerequisites
 - Docker compose
 Command to launch the deployment
 ```
