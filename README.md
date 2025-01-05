@@ -1,8 +1,6 @@
 # Treeblog [![Build Status](https://travis-ci.org/isqo/Treeblog.svg?branch=master)](https://travis-ci.org/isqo/Treeblog) [![Coverage Status](https://coveralls.io/repos/github/isqo/Treeblog/badge.svg?branch=master)](https://coveralls.io/github/isqo/Treeblog?branch=master)
 
-<p align="center">
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/treeblog.png">
-</p>
 
 # Deployment locally with compose
 ```
