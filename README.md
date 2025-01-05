@@ -8,25 +8,26 @@ the depth of their tree is unlimited. Enjoy!
 
 # Setup
 
-## Deployment locally with compose
+## Deployment locally
 ### prerequisites
-- docker compose
+- Docker compose
+Command to launch the deployment
 ```
 docker compose up --build --force-rebuild
 ```
-It is going to launch the setup steps which mainly initialize the database structure and some data.
+The next step is going to launch the steps that mainly initialize the database structure and inject some data for the blog.
 
 <p align="center">
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup1.png">
 </p>
 
-Don't forget to save *securely* the setup generated password, so that you don't lose your admin access
+Don't forget to save *securely* this setup generated password, so that you don't lose your admin access forever.
 
 <p align="center">
 <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
 </p>
 
- if you log out, you can login with this path http://127.0.0.1:81/login
+ if you log out, As an admin you can login with this path http://127.0.0.1:81/login (/login most importantly)
  
 <p align="center">
 <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/login.png">
