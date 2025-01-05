@@ -6,18 +6,25 @@ the depth of their tree is unlimited. Enjoy!
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/treeblog.png">
 </p>
 
-# Deployment locally with compose
+#Setup
+
+## Deployment locally with compose
+### prerequisites
+- docker compose
 ```
 docker compose up --build --force-rebuild
 ```
+It is going to launch the setup steps which mainly initialize the database structure and some data.
+
 <p align="center">
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup1.png">
 </p>
+Don't forget to save *securely* the setup generated password, so that you don't lose your admin access
 <p align="center">
 <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
 </p>
  
-# Vanilla
+# Vanilla setup
 To start the development server on <http://127.0.0.1:8000>:
 
 ```
