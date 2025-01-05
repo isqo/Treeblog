@@ -1,5 +1,5 @@
 # Treeblog [![Build Status](https://travis-ci.org/isqo/Treeblog.svg?branch=master)](https://travis-ci.org/isqo/Treeblog) [![Coverage Status](https://coveralls.io/repos/github/isqo/Treeblog/badge.svg?branch=master)](https://coveralls.io/github/isqo/Treeblog?branch=master)
-
+Treeblog is a unique blog that allows bloggers dive deept the Arborescence of their content, the depth of their tree is unlimited. Enjoy!
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/treeblog.png">
 
 # Deployment locally with compose
