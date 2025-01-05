@@ -7,10 +7,10 @@
 docker compose up --build --force-rebuild
 ```
 <p align="center">
- <img src="https://github.com/isqo/Treeblog/blob/test/doc/setup1.png">
+ <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup1.png">
 </p>
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/setup2.png">
+<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
 </p>
  
 # Vanilla
