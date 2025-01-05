@@ -35,6 +35,12 @@ Don't forget to save *securely* this setup generated password, so that you don't
 <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/login.png">
 </p>
 
+ Once you are logged-in, you have the admin view:
+ 
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/admin-view.png">
+</p>
+
 # Vanilla setup
 To start the development server on <http://127.0.0.1:8000>:
 
