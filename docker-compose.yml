@@ -45,7 +45,7 @@ services:
       - app_data:/var/www/html/public/storage
  #     - ./nginx/conf/:/etc/nginx/conf.d/:ro
   #    - ./certbot/www:/var/www/certbot/:ro
-   #   - shared-volume:/etc/nginx/ssl/:ro
+   #6   - shared-volume:/etc/nginx/ssl/:ro
     ports:
         - "81:81"
      #   - "443:443"
