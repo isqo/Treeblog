@@ -4,25 +4,14 @@
 
 # Docker compose
 ```
-docker-compose up
+docker compose up --build --force-rebuild
 ```
 <p align="center">
- <img src="https://github.com/isqo/Treeblog/blob/test/doc/blog1.png" style="width:450px;height:450px;">
+ <img src="https://github.com/isqo/Treeblog/blob/test/doc/setup1.png" style="width:450px;height:450px;">
 </p>
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog2.png" style="width:450px;height:450px;">
+<img src="https://github.com/isqo/Treeblog/blob/test/doc/setup2.png" style="width:450px;height:450px;">
 </p>
-
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/blog3.png">
-<p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/tree.png">
- </p>
-<p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/create node2.png">
- </p>
- <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/test/doc/tree page.png">
- </p>
  
 # Vanilla
 To start the development server on <http://127.0.0.1:8000>:
