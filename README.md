@@ -15,7 +15,7 @@ the depth of their tree is unlimited. Enjoy!
   
 Command to launch the containers
 ```
-docker compose up --build --force-rebuild
+docker compose up --build --force-recreate
 ```
 The next step is going to launch the steps that mainly initialize the database structure and inject some data for the blog.
 
