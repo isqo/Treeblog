@@ -17,6 +17,7 @@ class CreatePagesTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->text('content');
+            $table->string('title', 255)->default('');
             $table->integer('section_id')->nullable()->unsigned();
             $table->boolean('is_commentable')->default(true);
         });
