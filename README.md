@@ -20,25 +20,31 @@ docker compose up --build --force-rebuild
 The next step is going to launch the steps that mainly initialize the database structure and inject some data for the blog.
 
 <p align="center">
- <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup1.png">
+ <img src="https://github.com/isqo/Treeblog/blob/master/doc/setup1.png">
 </p>
 
 Don't forget to save *securely* this setup generated password, so that you don't lose your admin access forever.
 
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/setup2.png">
+<img src="https://github.com/isqo/Treeblog/blob/master/doc/setup2.png">
 </p>
 
   if you log out, As an admin you can login with this path http://127.0.0.1:81/login (/login most importantly)
  
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/login.png">
+<img src="https://github.com/isqo/Treeblog/blob/master/doc/login.png">
 </p>
 
  Once you are logged-in, you have the admin view:
  
 <p align="center">
-<img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/admin-view.png">
+<img src="https://github.com/isqo/Treeblog/blob/master/doc/admin-view.png">
+</p>
+
+let's create this arborescence:
+
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/master/doc/arborescence.png">
 </p>
 
 # Vanilla setup
