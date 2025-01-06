@@ -43,7 +43,8 @@ services:
       - /etc/nginx/ssl/live/ismaelqouiqa.com/privkey.pem:/etc/nginx/ssl/live/ismaelqouiqa.com/privkey.pem
       - /etc/nginx/ssl/live/ismaelqouiqa.com/fullchain.pem:/etc/nginx/ssl/live/ismaelqouiqa.com/fullchain.pem
     ports:
-      - "81:81"
+      - "80:80"
+      - "443:443"
     networks:
       - network
     links:
