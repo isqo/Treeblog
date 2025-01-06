@@ -15,8 +15,7 @@
             </td>
             <td>
                 <div>
-                    <a href="https://github.com/isqo/Treeblog" target="_blank" class="btn btn-primary">Code base on
-                        github</a>
+                    <a href="https://github.com/isqo/Treeblog" target="_blank" class="btn btn-primary">Github</a>
                 </div>
             </td>
         </tr>
