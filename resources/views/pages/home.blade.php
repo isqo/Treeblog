@@ -45,7 +45,52 @@
                         @if ($currentSection->name == 'main')
                             <h4>Latest posts</h4>
                             <div class="divider"></div>
-                       
+                            @foreach ($recentPostsPartitioned or [] as $recentPosts)
+                                <div class="columns">
+                                    @foreach ($recentPosts as $post)
+                                        @php
+                                            $html = new \Html2Text\Html2Text($post->content);
+                                        @endphp
+                                        <div class="column col-3 col-xl-6 col-sm-12 col-sm-12">
+                                            <div class="card c-hand"
+                                                 style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);"
+                                                 
+                                                 @if(isset($post->section) and isset($post->section->name) )         	     
+                                                 onclick="location.href=&quot;/{{($post->section->name)}}&quot;"
+                                                @endif
+                                                 
+                                                 >
+                                                <div class="card-header">
+                                                    <span class="card-title h5">       
+                                                        
+                                                        @if(isset($post->section) and isset($post->section->superSectionN(2)) and isset($post->section->superSectionN(2)->name) )         	     
+                                                        {{$post->section->superSectionN(2)->name}}
+                                                        @endif
+                                                        
+                                                        
+                                                        </span>
+                                                    -
+                                                    <span class="card-title h6">  
+                                                        @if(isset($post->section) and isset($post->section->superSectionN(2)) and isset($post->section->superSectionN(2)->name) )         	     
+                                                        {{$post->section->superSectionN(1)->name}}
+                                                        @endif
+                                                        </span>
+                                                    <div class="card-title h8"><b>{{$post->title}}</b></div>
+                                                </div>
+                                                <div class="card-body">{!! substr($html->getText(), 0, 100) !!}...</div>
+                                                <div class="card-footer">
+                                                    <div class="chip" style="float: right;">
+                                                        <img class="avatar avatar-sm"
+                                                             src="{{ asset('img/icons8-anonymous-mask.png') }}"
+                                                             alt="Ismail qouiqa">
+                                                        {{ date("d M Y", strtotime($post->created_at))}}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endforeach
                         @endif
                     </div>
                 </div>
