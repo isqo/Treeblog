@@ -47,6 +47,16 @@ let's create this arborescence:
 <img src="https://github.com/isqo/Treeblog/blob/master/doc/arborescence.png">
 </p>
 
+- Admin view after creating the Arborescence
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/master/doc/admin view.png">
+</p>
+
+- User view after creating the Arborescence
+<p align="center">
+<img src="https://github.com/isqo/Treeblog/blob/master/doc/user view.png">
+</p>
+
 # Vanilla setup
 To start the development server on <http://127.0.0.1:8000>:
 
