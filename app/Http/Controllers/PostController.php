@@ -24,6 +24,8 @@ class PostController extends Controller
         } else {
             $currentSection->page->update($contentToSave);
         }
-        return view('pages.home', compact('currentSection', 'content'));
+        
+        $recentPostsPartitioned = Page::getRecentPagesPartitioned();
+        return view('pages.home', compact('currentSection', 'content', 'recentPostsPartitioned'));
     }
 }
