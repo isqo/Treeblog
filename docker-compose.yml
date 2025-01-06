@@ -40,13 +40,20 @@ services:
     container_name: nginx
     volumes:
       - app_data:/var/www/html/public/storage
+      - shared_volume:/etc/nginx/ssl/:ro
     ports:
       - "81:81"
     networks:
       - network
     links:
       - app
+  certbot:
+      image: certbot/certbot:latest
+      volumes:
+        - /etc/letsencrypt/:/etc/letsencrypt/
+        - shared_volume:/etc/letsencrypt/:rwc
 
 volumes:
   app_data:
     driver: local
+  shared_volume:
