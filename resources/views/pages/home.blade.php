@@ -63,8 +63,8 @@
                                                 <div class="card-header">
                                                     <span class="card-title h5">       
                                                         
-                                                        @if(isset($post->section)
-                                                        $section = $post->section->superSectionN(2)
+                                                        @if(isset($post->section))
+                                                        {{$section = $post->section->superSectionN(2)}}
                                                         @if (isset($section->name)) 	     
                                                         {{$section->name}}
                                                         @endif
@@ -73,12 +73,13 @@
                                                         </span>
                                                     -
                                                     <span class="card-title h6"> 
-                                                        @if(isset($post->section)
-                                                        $section = $post->section->superSectionN(1)
+                                                        @if(isset($post->section))
+                                                        {{$section = $post->section->superSectionN(1)}}
                                                         @if (isset($section->name)) 	     
                                                         {{$section->name}}
                                                         @endif
                                                         @endif
+
                                                         </span>
                                                     <div class="card-title h8"><b>{{$post->title}}</b></div>
                                                 </div>
