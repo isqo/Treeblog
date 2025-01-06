@@ -40,6 +40,8 @@ services:
     container_name: nginx
     volumes:
       - app_data:/var/www/html/public/storage
+      - /etc/nginx/ssl/live/ismaelqouiqa.com/privkey.pem:/etc/nginx/ssl/live/ismaelqouiqa.com/privkey.pem
+      - /etc/nginx/ssl/live/ismaelqouiqa.com/fullchain.pem:/etc/nginx/ssl/live/ismaelqouiqa.com/fullchain.pem
     ports:
       - "81:81"
     networks:
