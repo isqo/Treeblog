@@ -26,7 +26,8 @@ class MainController extends Controller
 
         $recentPostsPartitioned = Page::getRecentPagesPartitioned();
         if (isset($recentPostsPartitioned)){
-            return $recentPostsPartitioned;
+            echo $recentPostsPartitioned;
+            return view('pages.home', compact('currentSection', 'content', 'recentPostsPartitioned'));
         }
         else {
             return "undfined";
