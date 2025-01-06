@@ -16,7 +16,7 @@ class CreateContentsTable extends Migration
         Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
-            $table->string('title', 255)->nullable();
+            $table->string('title', 255)->default('');
             $table->text('content');
             $table->integer('section_id')->unsigned();
             $table->boolean('is_commentable')->default(true);
