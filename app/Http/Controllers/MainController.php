@@ -25,7 +25,7 @@ class MainController extends Controller
 
 
         $recentPostsPartitioned = Page::getRecentPagesPartitioned();
-
+        echo $recentPostsPartitioned;
         return view('pages.home', compact('currentSection', 'content', 'recentPostsPartitioned'));
     }
 
