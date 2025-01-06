@@ -45,7 +45,7 @@
                         @if ($currentSection->name == 'main')
                             <h4>Latest posts</h4>
                             <div class="divider"></div>
-                            @foreach ([] as $recentPosts)
+                            @foreach ($recentPostsPartitioned or [] as $recentPosts)
                                 <div class="columns">
                                     @foreach ($recentPosts as $post)
                                         @php

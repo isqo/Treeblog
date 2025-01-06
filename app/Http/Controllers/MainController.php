@@ -23,15 +23,6 @@ class MainController extends Controller
         if ($page)
             $content = $page->content;
 
-
-        $recentPostsPartitioned = Page::getRecentPagesPartitioned();
-        if (isset($recentPostsPartitioned)){
-            print_r($recentPostsPartitioned);
-            return view('pages.home', compact('currentSection', 'content', 'recentPostsPartitioned'));
-        }
-        else {
-            return "undfined";
-        }
         return view('pages.home', compact('currentSection', 'content', 'recentPostsPartitioned'));
     }
 
