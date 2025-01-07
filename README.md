@@ -1,5 +1,5 @@
 # Treeblog [![Build Status](https://travis-ci.org/isqo/Treeblog.svg?branch=master)](https://travis-ci.org/isqo/Treeblog) [![Coverage Status](https://coveralls.io/repos/github/isqo/Treeblog/badge.svg?branch=master)](https://coveralls.io/github/isqo/Treeblog?branch=master)
-Treeblog is a unique blog site that allows bloggers oganize their content in an Arborescence, the depth of the tree is unlimited. Enjoy!
+Treeblog is a unique blog site that allows bloggers to organize their content in Arborescence mode, the depth of the tree is unlimited. Enjoy!
 
 <p align="center">
  <img src="https://github.com/isqo/Treeblog/blob/complete-readme/doc/treeblog.png">
