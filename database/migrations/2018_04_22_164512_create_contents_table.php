@@ -17,7 +17,7 @@ class CreateContentsTable extends Migration
             $table->increments('id');
             $table->timestamps();
             $table->string('title', 255)->default('');
-            $table->text('content');
+            $table->longtext('content');
             $table->integer('section_id')->unsigned();
             $table->boolean('is_commentable')->default(true);
         });
