@@ -53,7 +53,7 @@
                                         @endphp
                                         <div class="column col-3 col-xl-6 col-sm-12 col-sm-12">
                                             <div class="card c-hand"
-                                                 style="border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);"
+                                                 style="word-wrap: break-word;border: 0;box-shadow: 0 0.25rem 1rem rgba(48,55,66,.15);"
                                                  
                                                  @if(isset($post->section) and isset($post->section->name) )         	     
                                                  onclick="location.href=&quot;/{{($post->section->name)}}&quot;"
