@@ -45,7 +45,7 @@
                                 </div>
                                 <div class="col-10 col-sm-12">
                                     <input class="form-input" id="input-example-9" name="name" type="text"
-                                           placeholder="ex: Ismail QOUIQA">
+                                           placeholder="ex: Ismael QOUIQA">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -54,7 +54,7 @@
                                 </div>
                                 <div class="col-10 col-sm-12">
                                     <input class="form-input" id="input-example-8" type="email" name="email"
-                                           placeholder="ex: qouiqaismail@gmail.com"
+                                           placeholder="ex: qouiqaIsmael@gmail.com"
                                            pattern="[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$">
                                 </div>
                             </div>

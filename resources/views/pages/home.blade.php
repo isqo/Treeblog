@@ -19,7 +19,7 @@
                             <div style="margin-bottom: 40px;">
                                 <div class="chip" style="float: right;">
                                     <img class="avatar avatar-sm" src="{{ asset('img/icons8-anonymous-mask.png') }}"
-                                         alt="Ismail qouiqa">
+                                         alt="Ismael qouiqa">
                                     {{ date("d M Y", strtotime($currentSection->page->created_at))}}
                                 </div>
                             </div>
@@ -92,7 +92,7 @@
                                                     <div class="chip" style="float: right;">
                                                         <img class="avatar avatar-sm"
                                                              src="{{ asset('img/icons8-anonymous-mask.png') }}"
-                                                             alt="Ismail qouiqa">
+                                                             alt="Ismael qouiqa">
                                                         {{ date("d M Y", strtotime($post->created_at))}}
                                                     </div>
                                                 </div>

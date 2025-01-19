@@ -18,7 +18,7 @@ data "aws_ami" "ubuntu" {
 }
 
 data "aws_route53_zone" "selected" {
-  name         = "ismailqouiqa.com"
+  name         = "Ismaelqouiqa.com"
 }
 
 resource "aws_route53_record" "www" {
@@ -34,7 +34,7 @@ resource "aws_eip" "web" {
   instance = aws_instance.web.id
   tags = {
     Name  = "EIP for treeblog Built by Terraform"
-    Owner = "Ismail QOUIQA"
+    Owner = "Ismael QOUIQA"
   }
 }
 
@@ -75,6 +75,6 @@ resource "aws_security_group" "web" {
 
   tags = {
     Name  = "treeblog SG by Terraform"
-    Owner = "Ismail QOUIQA"
+    Owner = "Ismael QOUIQA"
   }
 }
